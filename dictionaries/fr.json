@@ -16,8 +16,8 @@
     "body_1": "EqualHome est la première app qui rend visible la charge mentale du foyer, pour la partager vraiment. Pas seulement les corvées :",
     "body_em": "aussi le travail cognitif",
     "body_2": "qui pèse en silence.",
-    "cta_primary": "Télécharger gratuitement",
-    "cta_secondary": "Voir la démo",
+    "cta_primary": "Rejoindre la liste d'attente",
+    "cta_secondary": "Comment ça marche",
     "badge": "iOS · Android · Gratuit pour commencer",
     "beta": "+ 12 000 couples en bêta",
     "flags": "France · UK · DE · NL · IT",
@@ -26,10 +26,34 @@
   "proof": {
     "eyebrow": "LA DONNÉE EST CLAIRE",
     "stats": [
-      { "raw": 71, "display": "71 %", "suffix": " %", "label": "des tâches mentales du foyer portées par une seule personne, généralement la femme.", "cite": "University of Bath & Melbourne, 2024" },
-      { "raw": 85, "display": "85 %", "suffix": " %", "label": "des tâches de ménage et 83% de planification portées par les mères.", "cite": "Journal of Marriage & Family" },
-      { "raw": null, "display": "60/40", "suffix": "", "label": "le déséquilibre persiste dans les couples LGBTQ+ (vs 80/20 hétéro).", "cite": "Helgøy & Weeks, 2024" },
-      { "raw": 4, "display": "4", "suffix": "", "label": "phases ignorées par les apps de tâches : anticiper, décider, surveiller, exécuter.", "cite": "USC Mental Load Research" }
+      {
+        "raw": 71,
+        "display": "71 %",
+        "suffix": " %",
+        "label": "des tâches mentales du foyer portées par une seule personne, généralement la femme.",
+        "cite": "University of Bath & Melbourne, 2024"
+      },
+      {
+        "raw": 85,
+        "display": "85 %",
+        "suffix": " %",
+        "label": "des tâches de ménage et 83% de planification portées par les mères.",
+        "cite": "Journal of Marriage & Family"
+      },
+      {
+        "raw": null,
+        "display": "60/40",
+        "suffix": "",
+        "label": "le déséquilibre persiste dans les couples LGBTQ+ (vs 80/20 hétéro).",
+        "cite": "Helgøy & Weeks, 2024"
+      },
+      {
+        "raw": 4,
+        "display": "4",
+        "suffix": "",
+        "label": "phases ignorées par les apps de tâches : anticiper, décider, surveiller, exécuter.",
+        "cite": "USC Mental Load Research"
+      }
     ]
   },
   "mental": {
@@ -39,10 +63,26 @@
     "h2_2": "est visible.",
     "subtitle": "Les apps de tâches ne mesurent que l'exécution. EqualHome reconnaît aussi les trois phases invisibles qui pèsent le plus.",
     "phases": [
-      { "tag": "01 · INVISIBLE", "title": "Anticiper", "desc": "Penser au cadeau d'anniversaire trois semaines à l'avance. Surveiller la taille des chaussures." },
-      { "tag": "02 · INVISIBLE", "title": "Décider", "desc": "Choisir l'assurance, la pédiatre, l'école. Comparer, trancher, assumer." },
-      { "tag": "03 · INVISIBLE", "title": "Surveiller", "desc": "Vérifier que le frigo est plein, que la facture est payée, que les vaccins sont à jour." },
-      { "tag": "04 · VISIBLE", "title": "Exécuter", "desc": "Cuisiner, conduire, remplir. La seule phase que les autres apps voient." }
+      {
+        "tag": "01 · INVISIBLE",
+        "title": "Anticiper",
+        "desc": "Penser au cadeau d'anniversaire trois semaines à l'avance. Surveiller la taille des chaussures."
+      },
+      {
+        "tag": "02 · INVISIBLE",
+        "title": "Décider",
+        "desc": "Choisir l'assurance, la pédiatre, l'école. Comparer, trancher, assumer."
+      },
+      {
+        "tag": "03 · INVISIBLE",
+        "title": "Surveiller",
+        "desc": "Vérifier que le frigo est plein, que la facture est payée, que les vaccins sont à jour."
+      },
+      {
+        "tag": "04 · VISIBLE",
+        "title": "Exécuter",
+        "desc": "Cuisiner, conduire, remplir. La seule phase que les autres apps voient."
+      }
     ]
   },
   "how": {
@@ -51,9 +91,21 @@
     "h2_1": "Trois minutes pour",
     "h2_2": "Une vie pour vous équilibrer.",
     "steps": [
-      { "num": "01", "title": "Fondez votre foyer", "desc": "Vos prénoms, votre langue, une couleur chacun. C'est tout." },
-      { "num": "02", "title": "Loggez en 1 tap", "desc": "Tâches d'exécution + charge mentale. Un toggle suffit pour distinguer les deux." },
-      { "num": "03", "title": "Voyez l'équilibre", "desc": "Un Balance Score vivant, mis à jour en temps réel. Lisible d'un coup d'œil." }
+      {
+        "num": "01",
+        "title": "Fondez votre foyer",
+        "desc": "Vos prénoms, votre langue, une couleur chacun. C'est tout."
+      },
+      {
+        "num": "02",
+        "title": "Loggez en 1 tap",
+        "desc": "Tâches d'exécution + charge mentale. Un toggle suffit pour distinguer les deux."
+      },
+      {
+        "num": "03",
+        "title": "Voyez l'équilibre",
+        "desc": "Un Balance Score vivant, mis à jour en temps réel. Lisible d'un coup d'œil."
+      }
     ],
     "step1_header": "FONDER LE FOYER",
     "step1_subtitle": "Vos prénoms pour commencer.",
@@ -61,7 +113,11 @@
     "step1_name2": "Sacha",
     "step1_cta": "Continuer",
     "step2_header": "Qu'as-tu fait ?",
-    "step2_items": ["🍽 Cuisiner le dîner", "👶 Prise RDV pédiatre", "💰 Renouveler assurance"],
+    "step2_items": [
+      "🍽 Cuisiner le dîner",
+      "👶 Prise RDV pédiatre",
+      "💰 Renouveler assurance"
+    ],
     "step2_toggle": "+ Charge mentale",
     "step2_cta": "Enregistrer",
     "step3_label": "BALANCE · SEMAINE 21"
@@ -86,9 +142,21 @@
     "h2_em": "conversation",
     "h2_2": "qui s'ouvre.",
     "items": [
-      { "q": "On ne se disputait plus sur les courses, mais sur qui pense à les faire. EqualHome a mis ce mot sur la table.", "name": "Léa & Marc", "sub": "Couple · Paris" },
-      { "q": "J'avais peur que ça transforme la maison en feuille Excel. Au contraire : on parle moins de tâches, plus d'équilibre.", "name": "Inès & Théo", "sub": "Couple · Lyon" },
-      { "q": "Mon mari ne se rendait pas compte. Les insights IA du dimanche soir, c'est devenu notre rituel honnête.", "name": "Sophie & David", "sub": "Couple · Marseille" }
+      {
+        "q": "On ne se disputait plus sur les courses, mais sur qui pense à les faire. EqualHome a mis ce mot sur la table.",
+        "name": "Léa & Marc",
+        "sub": "Couple · Paris"
+      },
+      {
+        "q": "J'avais peur que ça transforme la maison en feuille Excel. Au contraire : on parle moins de tâches, plus d'équilibre.",
+        "name": "Inès & Théo",
+        "sub": "Couple · Lyon"
+      },
+      {
+        "q": "Mon mari ne se rendait pas compte. Les insights IA du dimanche soir, c'est devenu notre rituel honnête.",
+        "name": "Sophie & David",
+        "sub": "Couple · Marseille"
+      }
     ]
   },
   "pricing": {
@@ -99,13 +167,24 @@
     "trial": "Un essai de 7 jours sans engagement. Vous gardez accès à votre historique même si vous repassez gratuit.",
     "free_name": "Gratuit",
     "free_price": "0 €",
-    "free_features": ["Jusqu'à 10 tâches", "Balance Score basique", "Invitation partenaire", "Catégories prédéfinies"],
+    "free_features": [
+      "Jusqu'à 10 tâches",
+      "Balance Score basique",
+      "Invitation partenaire",
+      "Catégories prédéfinies"
+    ],
     "free_cta": "Télécharger",
     "premium_name": "Premium",
     "premium_price": "49,99 €",
     "premium_period": "/ an · 4,16 €/mois",
     "premium_badge": "-30 %",
-    "premium_features": ["Tâches illimitées", "Insights IA hebdo", "Historique illimité", "Rapports partageables", "Mode Discussion guidée"],
+    "premium_features": [
+      "Tâches illimitées",
+      "Insights IA hebdo",
+      "Historique illimité",
+      "Rapports partageables",
+      "Mode Discussion guidée"
+    ],
     "premium_cta": "Essai 7 jours"
   },
   "cta": {
@@ -113,7 +192,11 @@
     "h2_em": "à deux",
     "h2_1": "Le foyer se porte",
     "body": "L'app arrive bientôt. Rejoignez la liste d'attente et soyez parmi les premiers à tester EqualHome.",
-    "waitlist_label": "Rejoindre la liste d'attente"
+    "waitlist_label": "Rejoindre la liste d'attente",
+    "form_placeholder": "Votre adresse e-mail",
+    "form_cta": "Je m'inscris",
+    "form_success": "🎉 Vous êtes sur la liste ! On vous contacte bientôt.",
+    "form_error": "Une erreur est survenue, réessayez."
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -122,33 +205,93 @@
     "contact": "Une autre question ? Écrivez-nous à",
     "email": "bonjour@equalhome.app",
     "items": [
-      { "q": "Que se passe-t-il si mon partenaire refuse de s'inscrire ?", "a": "Vous pouvez utiliser EqualHome en solo : vous suivez votre propre charge, vous voyez vos déséquilibres, et vous pouvez partager un rapport visuel. L'app reste utile, et l'invitation reste possible à tout moment." },
-      { "q": "L'IA va-t-elle juger qui en fait plus ?", "a": "Non. Le ton est descriptif, jamais accusateur. Les insights expliquent et suggèrent. Ils ne notent personne. EqualHome rend visible, jamais coupable." },
-      { "q": "Mes données sont-elles privées ?", "a": "Vos données sont chiffrées et ne sont jamais vendues. Vous pouvez exporter ou supprimer votre foyer à tout moment depuis les Réglages." },
-      { "q": "Comment EqualHome distingue charge mentale et exécution ?", "a": "Chaque tâche peut être loggée avec un toggle « j'ai aussi géré la charge mentale ». Cela ajoute 1 à 3 points bonus selon le poids défini par votre couple. Le poids est entièrement personnalisable." },
-      { "q": "Disponible en quelles langues ?", "a": "Français et anglais au lancement. Allemand, espagnol, italien, néerlandais et portugais arrivent dans les 6 mois." }
+      {
+        "q": "Que se passe-t-il si mon partenaire refuse de s'inscrire ?",
+        "a": "Vous pouvez utiliser EqualHome en solo : vous suivez votre propre charge, vous voyez vos déséquilibres, et vous pouvez partager un rapport visuel. L'app reste utile, et l'invitation reste possible à tout moment."
+      },
+      {
+        "q": "L'IA va-t-elle juger qui en fait plus ?",
+        "a": "Non. Le ton est descriptif, jamais accusateur. Les insights expliquent et suggèrent. Ils ne notent personne. EqualHome rend visible, jamais coupable."
+      },
+      {
+        "q": "Mes données sont-elles privées ?",
+        "a": "Vos données sont chiffrées et ne sont jamais vendues. Vous pouvez exporter ou supprimer votre foyer à tout moment depuis les Réglages."
+      },
+      {
+        "q": "Comment EqualHome distingue charge mentale et exécution ?",
+        "a": "Chaque tâche peut être loggée avec un toggle « j'ai aussi géré la charge mentale ». Cela ajoute 1 à 3 points bonus selon le poids défini par votre couple. Le poids est entièrement personnalisable."
+      },
+      {
+        "q": "Disponible en quelles langues ?",
+        "a": "Français et anglais au lancement. Allemand, espagnol, italien, néerlandais et portugais arrivent dans les 6 mois."
+      }
     ]
   },
   "footer": {
     "cols": [
-      { "title": "PRODUIT", "links": [
-        { "label": "Comment ça marche", "href": "/#comment" },
-        { "label": "Charge mentale", "href": "/#mental" },
-        { "label": "Tarifs", "href": "/#pricing" },
-        { "label": "Liste d'attente", "href": "/#cta" }
-      ]},
-      { "title": "EQUALHOME", "links": [
-        { "label": "Manifeste", "href": "/#footer" },
-        { "label": "Recherche", "href": "#" },
-        { "label": "Presse", "href": "mailto:presse@equalhome.app" },
-        { "label": "Newsletter", "href": "#" }
-      ]},
-      { "title": "LÉGAL", "links": [
-        { "label": "Confidentialité", "href": "/privacy" },
-        { "label": "CGU", "href": "/terms" },
-        { "label": "Cookies", "href": "/cookies" },
-        { "label": "Support", "href": "/support" }
-      ]}
+      {
+        "title": "PRODUIT",
+        "links": [
+          {
+            "label": "Comment ça marche",
+            "href": "/#comment"
+          },
+          {
+            "label": "Charge mentale",
+            "href": "/#mental"
+          },
+          {
+            "label": "Tarifs",
+            "href": "/#pricing"
+          },
+          {
+            "label": "Liste d'attente",
+            "href": "/#cta"
+          }
+        ]
+      },
+      {
+        "title": "EQUALHOME",
+        "links": [
+          {
+            "label": "Manifeste",
+            "href": "/#footer"
+          },
+          {
+            "label": "Recherche",
+            "href": "#"
+          },
+          {
+            "label": "Presse",
+            "href": "mailto:presse@equalhome.app"
+          },
+          {
+            "label": "Newsletter",
+            "href": "#"
+          }
+        ]
+      },
+      {
+        "title": "LÉGAL",
+        "links": [
+          {
+            "label": "Confidentialité",
+            "href": "/privacy"
+          },
+          {
+            "label": "CGU",
+            "href": "/terms"
+          },
+          {
+            "label": "Cookies",
+            "href": "/cookies"
+          },
+          {
+            "label": "Support",
+            "href": "/support"
+          }
+        ]
+      }
     ],
     "tagline": "EqualHome rend visible la charge mentale du foyer, pour la partager vraiment.",
     "copy": "© 2026 EQUALHOME · DIGITALL ELEVATE",

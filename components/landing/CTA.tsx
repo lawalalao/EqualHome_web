@@ -3,9 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { EHMark } from "@/components/icons";
-
-const BREVO_FORM_URL =
-  "https://0603c6b0.sibforms.com/v2/serve/MUIFAFJpM4Grq7ZBPpzsDtEgOR0s-cmPMreyfHzYZ4FVFkbTAr7Yr3OtgT8WroudD7DBiPV1zEWvjLgu9fmYVtSVnFzaHlE27hG6AtMIDWjp6rK9KXmW1Md-oI1ny69OXyeZ20j9bobJOtRhR8l3kI47v0iGOxwO7QZk-z5agPpcLosmrUXWNNwuwUDlc-JW3VYZzIj8I7wnstYHfw==";
+import { WaitlistForm } from "./WaitlistForm";
 
 interface CTADict {
   eyebrow: string;
@@ -13,6 +11,10 @@ interface CTADict {
   h2_1: string;
   body: string;
   waitlist_label: string;
+  form_placeholder: string;
+  form_cta: string;
+  form_success: string;
+  form_error: string;
 }
 
 export function CTA({ dict }: { dict: CTADict }) {
@@ -59,39 +61,20 @@ export function CTA({ dict }: { dict: CTADict }) {
           <p style={{ marginTop: 28, fontSize: 18, color: "var(--eh-ink-2)", maxWidth: 560, marginInline: "auto", lineHeight: 1.5 }}>
             {dict.body}
           </p>
+        </motion.div>
 
-          {/* Waitlist form */}
-          <motion.div
-            style={{ marginTop: 48 }}
-            initial={{ opacity: 0, y: 16 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div style={{
-              display: "inline-block",
-              background: "var(--eh-bg)",
-              borderRadius: 24,
-              border: "1px solid var(--eh-line)",
-              boxShadow: "0 20px 60px rgba(40,30,20,0.12)",
-              overflow: "hidden",
-              maxWidth: "min(560px, calc(100vw - 48px))",
-              width: "100%",
-            }}>
-              <iframe
-                src={BREVO_FORM_URL}
-                frameBorder={0}
-                scrolling="auto"
-                allowFullScreen
-                title={dict.waitlist_label}
-                style={{
-                  display: "block",
-                  width: "100%",
-                  minHeight: 305,
-                  border: "none",
-                }}
-              />
-            </div>
-          </motion.div>
+        <motion.div
+          style={{ marginTop: 48 }}
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <WaitlistForm dict={{
+            placeholder: dict.form_placeholder,
+            cta: dict.form_cta,
+            success: dict.form_success,
+            error: dict.form_error,
+          }} />
         </motion.div>
       </div>
 
