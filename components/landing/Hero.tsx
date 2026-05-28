@@ -61,7 +61,7 @@ export function Hero() {
             style={{ marginTop: 30, fontSize: 19, color: "var(--eh-ink-2)", lineHeight: 1.5, maxWidth: 520 }}
             {...fadeRiseProps(inView, 0.1)}
           >
-            EqualHome est la première app qui rend visible la charge mentale du foyer — pour la partager vraiment.
+            EqualHome est la première app qui rend visible la charge mentale du foyer, pour la partager vraiment.
             Pas seulement les corvées : <em>aussi le travail cognitif</em> qui pèse en silence.
           </motion.p>
 

@@ -11,7 +11,7 @@ const ITEMS = [
   },
   {
     q: "L'IA va-t-elle juger qui en fait plus ?",
-    a: "Non. Le ton est descriptif, jamais accusateur. Les insights expliquent et suggèrent — ils ne notent personne. EqualHome rend visible, jamais coupable.",
+    a: "Non. Le ton est descriptif, jamais accusateur. Les insights expliquent et suggèrent. Ils ne notent personne. EqualHome rend visible, jamais coupable.",
   },
   {
     q: "Mes données sont-elles privées ?",

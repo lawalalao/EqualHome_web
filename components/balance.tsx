@@ -16,7 +16,7 @@ function balanceTone(score: number) {
   if (drift <= 5)  return { mood: "aligned",  hex: "var(--eh-success)",  label: "Équilibre atteint" };
   if (drift <= 12) return { mood: "soft",     hex: "var(--eh-primary)",  label: "Léger déséquilibre" };
   if (drift <= 20) return { mood: "warning",  hex: "var(--eh-accent)",   label: "Déséquilibre notable" };
-  return              { mood: "alert",    hex: "var(--eh-warning)",  label: "Alerte — discutez-en" };
+  return              { mood: "alert",    hex: "var(--eh-warning)",  label: "Alerte : discutez-en" };
 }
 
 interface BalanceScoreProps {

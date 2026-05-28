@@ -3,9 +3,25 @@
 import { EHLogo } from "@/components/icons";
 
 const COLS = [
-  { title: "PRODUIT",    links: ["Comment ça marche", "Charge mentale", "Tarifs", "iOS", "Android"] },
-  { title: "EQUALHOME", links: ["Manifeste", "Recherche", "Presse", "Newsletter"] },
-  { title: "LÉGAL",     links: ["Confidentialité", "CGU", "Cookies", "Contact"] },
+  { title: "PRODUIT", links: [
+    { label: "Comment ça marche", href: "/#comment" },
+    { label: "Charge mentale",    href: "/#mental" },
+    { label: "Tarifs",            href: "/#pricing" },
+    { label: "iOS",               href: "/#cta" },
+    { label: "Android",           href: "/#cta" },
+  ]},
+  { title: "EQUALHOME", links: [
+    { label: "Manifeste",   href: "/#footer" },
+    { label: "Recherche",   href: "#" },
+    { label: "Presse",      href: "mailto:presse@equalhome.app" },
+    { label: "Newsletter",  href: "#" },
+  ]},
+  { title: "LÉGAL", links: [
+    { label: "Confidentialité", href: "/privacy" },
+    { label: "CGU",             href: "/terms" },
+    { label: "Cookies",         href: "/cookies" },
+    { label: "Support",         href: "/support" },
+  ]},
 ];
 
 export function Footer() {
@@ -26,7 +42,7 @@ export function Footer() {
           <div>
             <EHLogo size={20} />
             <p style={{ marginTop: 16, fontSize: 13.5, color: "var(--eh-ink-2)", lineHeight: 1.5, maxWidth: 320 }}>
-              EqualHome rend visible la charge mentale du foyer — pour la partager vraiment.
+              EqualHome rend visible la charge mentale du foyer, pour la partager vraiment.
             </p>
           </div>
           {COLS.map(({ title, links }) => (
@@ -34,11 +50,11 @@ export function Footer() {
               <div className="eh-eyebrow" style={{ marginBottom: 14 }}>{title}</div>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 {links.map(l => (
-                  <a key={l} href="#" style={{ color: "var(--eh-ink)", fontSize: 13.5, textDecoration: "none", opacity: 0.75 }}
+                  <a key={l.label} href={l.href} style={{ color: "var(--eh-ink)", fontSize: 13.5, textDecoration: "none", opacity: 0.75 }}
                     onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
                     onMouseLeave={e => (e.currentTarget.style.opacity = "0.75")}
                   >
-                    {l}
+                    {l.label}
                   </a>
                 ))}
               </div>

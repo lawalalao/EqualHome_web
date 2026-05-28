@@ -6,11 +6,11 @@ import { EHAvatar } from "@/components/icons";
 
 const TESTIMONIALS = [
   {
-    q: "On ne se disputait plus sur les courses — on se disputait sur qui pense à les faire. EqualHome a mis ce mot sur la table.",
+    q: "On ne se disputait plus sur les courses, mais sur qui pense à les faire. EqualHome a mis ce mot sur la table.",
     name: "Léa & Marc", sub: "Couple · Paris", tone: "primary" as const,
   },
   {
-    q: "J'avais peur que ça transforme la maison en feuille Excel. Au contraire — on parle moins de tâches, plus d'équilibre.",
+    q: "J'avais peur que ça transforme la maison en feuille Excel. Au contraire : on parle moins de tâches, plus d'équilibre.",
     name: "Inès & Théo", sub: "Couple · Lyon", tone: "accent" as const,
   },
   {

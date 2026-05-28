@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { AnimatedNumber } from "@/components/balance";
 
 const STATS = [
-  { raw: 71, display: "71 %", suffix: " %", label: "des tâches mentales du foyer portées par une seule personne — généralement la femme.", cite: "University of Bath & Melbourne, 2024" },
+  { raw: 71, display: "71 %", suffix: " %", label: "des tâches mentales du foyer portées par une seule personne, généralement la femme.", cite: "University of Bath & Melbourne, 2024" },
   { raw: 85, display: "85 %", suffix: " %", label: "des tâches de ménage et 83% de planification portées par les mères.", cite: "Journal of Marriage & Family" },
   { raw: null, display: "60/40", suffix: "", label: "le déséquilibre persiste dans les couples LGBTQ+ (vs 80/20 hétéro).", cite: "Helgøy & Weeks, 2024" },
   { raw: 4, display: "4", suffix: "", label: "phases ignorées par les apps de tâches : anticiper, décider, surveiller, exécuter.", cite: "USC Mental Load Research" },

@@ -52,7 +52,7 @@ export function BalanceSection() {
             </h2>
             <p style={{ marginTop: 28, fontSize: 17, color: "rgba(255,255,255,0.75)", lineHeight: 1.55, maxWidth: 480 }}>
               Le Balance Score combine vos tâches d&apos;exécution et votre charge mentale en une lecture honnête.
-              Pas de classement, pas de score moral — juste la réalité, pour en parler autrement.
+              Pas de classement, pas de score moral. Juste la réalité, pour en parler autrement.
             </p>
 
             <div style={{ marginTop: 36, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, maxWidth: 480 }}>
