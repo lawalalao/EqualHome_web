@@ -103,15 +103,14 @@ export function Hero({ dict }: { dict: HeroDict }) {
             >
               {dict.cta_primary} <Ico name="arrow" size={18} stroke="currentColor" sw={2} />
             </a>
-            <a href="#comment" style={{
+            <button style={{
               padding: "18px 28px", borderRadius: 14,
               background: "transparent", color: "var(--eh-ink)",
               border: "1px solid var(--eh-line-strong)",
               cursor: "pointer", fontWeight: 500, fontSize: 16,
-              textDecoration: "none", display: "inline-flex",
             }}>
               {dict.cta_secondary}
-            </a>
+            </button>
             <span style={{ fontFamily: "var(--font-dm-sans), system-ui, sans-serif", fontSize: 13, color: "var(--eh-ink-2)" }}>
               {dict.badge}
             </span>

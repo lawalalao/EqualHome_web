@@ -3,18 +3,14 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { EHMark } from "@/components/icons";
-import { WaitlistForm } from "./WaitlistForm";
 
 interface CTADict {
   eyebrow: string;
   h2_em: string;
   h2_1: string;
   body: string;
-  waitlist_label: string;
-  form_placeholder: string;
-  form_cta: string;
-  form_success: string;
-  form_error: string;
+  app_store: string;
+  google_play: string;
 }
 
 export function CTA({ dict }: { dict: CTADict }) {
@@ -61,20 +57,11 @@ export function CTA({ dict }: { dict: CTADict }) {
           <p style={{ marginTop: 28, fontSize: 18, color: "var(--eh-ink-2)", maxWidth: 560, marginInline: "auto", lineHeight: 1.5 }}>
             {dict.body}
           </p>
-        </motion.div>
 
-        <motion.div
-          style={{ marginTop: 48 }}
-          initial={{ opacity: 0, y: 16 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <WaitlistForm dict={{
-            placeholder: dict.form_placeholder,
-            cta: dict.form_cta,
-            success: dict.form_success,
-            error: dict.form_error,
-          }} />
+          <div style={{ marginTop: 36, display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
+            <StoreBtn os="iOS" label={dict.app_store} />
+            <StoreBtn os="Android" label={dict.google_play} />
+          </div>
         </motion.div>
       </div>
 
@@ -84,5 +71,41 @@ export function CTA({ dict }: { dict: CTADict }) {
         }
       `}</style>
     </section>
+  );
+}
+
+function StoreBtn({ os, label }: { os: "iOS" | "Android"; label: string }) {
+  return (
+    <a
+      href="#"
+      style={{
+        display: "inline-flex", alignItems: "center", gap: 14,
+        padding: "14px 22px", borderRadius: 14,
+        background: "var(--eh-ink)", color: "var(--eh-bg)",
+        textDecoration: "none",
+        transition: "transform .2s, box-shadow .2s",
+      }}
+      onMouseEnter={e => {
+        (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)";
+        (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 28px rgba(26,26,26,0.2)";
+      }}
+      onMouseLeave={e => {
+        (e.currentTarget as HTMLElement).style.transform = "";
+        (e.currentTarget as HTMLElement).style.boxShadow = "";
+      }}
+    >
+      <span style={{ fontSize: 24 }}>{os === "iOS" ? "" : "▸"}</span>
+      <div style={{ textAlign: "left" }}>
+        <div style={{
+          fontFamily: "var(--font-dm-mono), ui-monospace, monospace",
+          fontSize: 10, opacity: 0.6, letterSpacing: "0.14em",
+        }}>
+          {label}
+        </div>
+        <div style={{ fontSize: 16, fontWeight: 500, marginTop: 2 }}>
+          {os === "iOS" ? "App Store" : "Google Play"}
+        </div>
+      </div>
+    </a>
   );
 }

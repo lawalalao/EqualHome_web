@@ -5,7 +5,7 @@
     "pricing": "Pricing",
     "manifesto": "Manifesto",
     "login": "Log in",
-    "download": "Join waitlist",
+    "download": "Download the App",
     "switch_lang": "FR"
   },
   "hero": {
@@ -16,8 +16,8 @@
     "body_1": "EqualHome is the first app that makes the mental load of your household visible, so you can truly share it. Not just chores:",
     "body_em": "also the cognitive work",
     "body_2": "that weighs in silence.",
-    "cta_primary": "Join the waitlist",
-    "cta_secondary": "How it works",
+    "cta_primary": "Download for free",
+    "cta_secondary": "See the demo",
     "badge": "iOS · Android · Free to start",
     "beta": "+ 12,000 couples in beta",
     "flags": "France · UK · DE · NL · IT",
@@ -191,12 +191,9 @@
     "eyebrow": "ONE LAST THING",
     "h2_em": "together",
     "h2_1": "Home life is better",
-    "body": "The app is coming soon. Join the waitlist and be among the first to try EqualHome.",
-    "waitlist_label": "Join the waitlist",
-    "form_placeholder": "Your email address",
-    "form_cta": "Join now",
-    "form_success": "🎉 You're on the list! We'll be in touch soon.",
-    "form_error": "Something went wrong, please try again."
+    "body": "Download EqualHome and invite your partner in 30 seconds.",
+    "app_store": "DOWNLOAD ON",
+    "google_play": "GET IT ON"
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -245,7 +242,11 @@
             "href": "/#pricing"
           },
           {
-            "label": "Waitlist",
+            "label": "iOS",
+            "href": "/#cta"
+          },
+          {
+            "label": "Android",
             "href": "/#cta"
           }
         ]

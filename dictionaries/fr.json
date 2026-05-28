@@ -5,7 +5,7 @@
     "pricing": "Tarifs",
     "manifesto": "Manifeste",
     "login": "Se connecter",
-    "download": "Rejoindre la liste",
+    "download": "Télécharger l'app",
     "switch_lang": "EN"
   },
   "hero": {
@@ -16,8 +16,8 @@
     "body_1": "EqualHome est la première app qui rend visible la charge mentale du foyer, pour la partager vraiment. Pas seulement les corvées :",
     "body_em": "aussi le travail cognitif",
     "body_2": "qui pèse en silence.",
-    "cta_primary": "Rejoindre la liste d'attente",
-    "cta_secondary": "Comment ça marche",
+    "cta_primary": "Télécharger gratuitement",
+    "cta_secondary": "Voir la démo",
     "badge": "iOS · Android · Gratuit pour commencer",
     "beta": "+ 12 000 couples en bêta",
     "flags": "France · UK · DE · NL · IT",
@@ -191,12 +191,9 @@
     "eyebrow": "UNE DERNIÈRE CHOSE",
     "h2_em": "à deux",
     "h2_1": "Le foyer se porte",
-    "body": "L'app arrive bientôt. Rejoignez la liste d'attente et soyez parmi les premiers à tester EqualHome.",
-    "waitlist_label": "Rejoindre la liste d'attente",
-    "form_placeholder": "Votre adresse e-mail",
-    "form_cta": "Je m'inscris",
-    "form_success": "🎉 Vous êtes sur la liste ! On vous contacte bientôt.",
-    "form_error": "Une erreur est survenue, réessayez."
+    "body": "Téléchargez EqualHome et invitez votre partenaire en 30 secondes.",
+    "app_store": "TÉLÉCHARGER SUR",
+    "google_play": "TÉLÉCHARGER SUR"
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -245,7 +242,11 @@
             "href": "/#pricing"
           },
           {
-            "label": "Liste d'attente",
+            "label": "iOS",
+            "href": "/#cta"
+          },
+          {
+            "label": "Android",
             "href": "/#cta"
           }
         ]
