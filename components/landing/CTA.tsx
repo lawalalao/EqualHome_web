@@ -4,7 +4,18 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { EHMark } from "@/components/icons";
 
-export function CTA() {
+const BREVO_FORM_URL =
+  "https://0603c6b0.sibforms.com/v2/serve/MUIFAFJpM4Grq7ZBPpzsDtEgOR0s-cmPMreyfHzYZ4FVFkbTAr7Yr3OtgT8WroudD7DBiPV1zEWvjLgu9fmYVtSVnFzaHlE27hG6AtMIDWjp6rK9KXmW1Md-oI1ny69OXyeZ20j9bobJOtRhR8l3kI47v0iGOxwO7QZk-z5agPpcLosmrUXWNNwuwUDlc-JW3VYZzIj8I7wnstYHfw==";
+
+interface CTADict {
+  eyebrow: string;
+  h2_em: string;
+  h2_1: string;
+  body: string;
+  waitlist_label: string;
+}
+
+export function CTA({ dict }: { dict: CTADict }) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -34,7 +45,7 @@ export function CTA() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="eh-eyebrow" style={{ marginBottom: 14 }}>UNE DERNIÈRE CHOSE</div>
+          <div className="eh-eyebrow" style={{ marginBottom: 14 }}>{dict.eyebrow}</div>
           <h2 style={{
             margin: 0,
             fontFamily: "var(--font-fraunces), Georgia, serif",
@@ -43,16 +54,44 @@ export function CTA() {
             letterSpacing: "-0.035em", lineHeight: 1,
             maxWidth: 980, marginInline: "auto",
           }}>
-            Le foyer se porte <em style={{ fontStyle: "italic", fontWeight: 400 }}>à deux</em>.
+            {dict.h2_1} <em style={{ fontStyle: "italic", fontWeight: 400 }}>{dict.h2_em}</em>.
           </h2>
           <p style={{ marginTop: 28, fontSize: 18, color: "var(--eh-ink-2)", maxWidth: 560, marginInline: "auto", lineHeight: 1.5 }}>
-            Téléchargez EqualHome et invitez votre partenaire en 30 secondes.
+            {dict.body}
           </p>
 
-          <div style={{ marginTop: 36, display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-            <StoreBtn os="iOS" />
-            <StoreBtn os="Android" />
-          </div>
+          {/* Waitlist form */}
+          <motion.div
+            style={{ marginTop: 48 }}
+            initial={{ opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div style={{
+              display: "inline-block",
+              background: "var(--eh-bg)",
+              borderRadius: 24,
+              border: "1px solid var(--eh-line)",
+              boxShadow: "0 20px 60px rgba(40,30,20,0.12)",
+              overflow: "hidden",
+              maxWidth: "min(560px, calc(100vw - 48px))",
+              width: "100%",
+            }}>
+              <iframe
+                src={BREVO_FORM_URL}
+                frameBorder={0}
+                scrolling="auto"
+                allowFullScreen
+                title={dict.waitlist_label}
+                style={{
+                  display: "block",
+                  width: "100%",
+                  minHeight: 305,
+                  border: "none",
+                }}
+              />
+            </div>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -62,41 +101,5 @@ export function CTA() {
         }
       `}</style>
     </section>
-  );
-}
-
-function StoreBtn({ os }: { os: "iOS" | "Android" }) {
-  return (
-    <a
-      href="#"
-      style={{
-        display: "inline-flex", alignItems: "center", gap: 14,
-        padding: "14px 22px", borderRadius: 14,
-        background: "var(--eh-ink)", color: "var(--eh-bg)",
-        textDecoration: "none",
-        transition: "transform .2s, box-shadow .2s",
-      }}
-      onMouseEnter={e => {
-        (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)";
-        (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 28px rgba(26,26,26,0.2)";
-      }}
-      onMouseLeave={e => {
-        (e.currentTarget as HTMLElement).style.transform = "";
-        (e.currentTarget as HTMLElement).style.boxShadow = "";
-      }}
-    >
-      <span style={{ fontSize: 24 }}>{os === "iOS" ? "" : "▸"}</span>
-      <div style={{ textAlign: "left" }}>
-        <div style={{
-          fontFamily: "var(--font-dm-mono), ui-monospace, monospace",
-          fontSize: 10, opacity: 0.6, letterSpacing: "0.14em",
-        }}>
-          TÉLÉCHARGER SUR
-        </div>
-        <div style={{ fontSize: 16, fontWeight: 500, marginTop: 2 }}>
-          {os === "iOS" ? "App Store" : "Google Play"}
-        </div>
-      </div>
-    </a>
   );
 }

@@ -1,0 +1,167 @@
+{
+  "nav": {
+    "product": "The Product",
+    "mental": "Mental Load",
+    "pricing": "Pricing",
+    "manifesto": "Manifesto",
+    "login": "Log in",
+    "download": "Join waitlist",
+    "switch_lang": "FR"
+  },
+  "hero": {
+    "eyebrow": "NEW · EQUALHOME FOR COUPLES",
+    "h1_1": "Make the ",
+    "h1_em": "invisible",
+    "h1_2": "visible.",
+    "body_1": "EqualHome is the first app that makes the mental load of your household visible, so you can truly share it. Not just chores:",
+    "body_em": "also the cognitive work",
+    "body_2": "that weighs in silence.",
+    "cta_primary": "Download for free",
+    "cta_secondary": "See the demo",
+    "badge": "iOS · Android · Free to start",
+    "beta": "+ 12,000 couples in beta",
+    "flags": "France · UK · DE · NL · IT",
+    "balance_label": "YOUR BALANCE · WEEK 21"
+  },
+  "proof": {
+    "eyebrow": "THE DATA IS CLEAR",
+    "stats": [
+      { "raw": 71, "display": "71 %", "suffix": " %", "label": "of household mental tasks carried by one person, usually the woman.", "cite": "University of Bath & Melbourne, 2024" },
+      { "raw": 85, "display": "85 %", "suffix": " %", "label": "of housework and 83% of planning carried by mothers.", "cite": "Journal of Marriage & Family" },
+      { "raw": null, "display": "60/40", "suffix": "", "label": "imbalance persists in LGBTQ+ couples (vs 80/20 hetero).", "cite": "Helgøy & Weeks, 2024" },
+      { "raw": 4, "display": "4", "suffix": "", "label": "phases ignored by task apps: anticipate, decide, monitor, execute.", "cite": "USC Mental Load Research" }
+    ]
+  },
+  "mental": {
+    "eyebrow": "THE MENTAL LOAD, MADE CONCRETE",
+    "h2_1": "Four phases.",
+    "h2_em": "Only one",
+    "h2_2": "is visible.",
+    "subtitle": "Task apps only measure execution. EqualHome also recognises the three invisible phases that weigh the most.",
+    "phases": [
+      { "tag": "01 · INVISIBLE", "title": "Anticipate", "desc": "Thinking about the birthday gift three weeks ahead. Tracking shoe sizes." },
+      { "tag": "02 · INVISIBLE", "title": "Decide", "desc": "Choosing the insurance, the paediatrician, the school. Comparing, deciding, taking responsibility." },
+      { "tag": "03 · INVISIBLE", "title": "Monitor", "desc": "Checking the fridge is full, the bill is paid, the vaccines are up to date." },
+      { "tag": "04 · VISIBLE", "title": "Execute", "desc": "Cooking, driving, filing. The only phase other apps see." }
+    ]
+  },
+  "how": {
+    "eyebrow": "HOW IT WORKS",
+    "h2_em": "set up",
+    "h2_1": "Three minutes to",
+    "h2_2": "A lifetime to find balance.",
+    "steps": [
+      { "num": "01", "title": "Create your household", "desc": "Your names, your language, a colour each. That's it." },
+      { "num": "02", "title": "Log in 1 tap", "desc": "Execution tasks + mental load. One toggle is enough to tell them apart." },
+      { "num": "03", "title": "See the balance", "desc": "A living Balance Score, updated in real time. Readable at a glance." }
+    ],
+    "step1_header": "CREATE HOUSEHOLD",
+    "step1_subtitle": "Your names to get started.",
+    "step1_name1": "Camille",
+    "step1_name2": "Sacha",
+    "step1_cta": "Continue",
+    "step2_header": "What did you do?",
+    "step2_items": ["🍽 Cook dinner", "👶 Book paediatrician appt.", "💰 Renew insurance"],
+    "step2_toggle": "+ Mental load",
+    "step2_cta": "Save",
+    "step3_label": "BALANCE · WEEK 21"
+  },
+  "balance": {
+    "eyebrow": "BALANCE SCORE",
+    "h2_1": "One number.",
+    "h2_em": "The whole",
+    "h2_2": "conversation.",
+    "body": "The Balance Score combines your execution tasks and mental load into an honest reading. No ranking, no moral score. Just reality, so you can talk about it differently.",
+    "labels": {
+      "aligned": "Balance achieved",
+      "soft": "Slight imbalance",
+      "warning": "Notable imbalance",
+      "alert": "Alert: talk about it"
+    },
+    "week": "WEEK"
+  },
+  "testimonials": {
+    "eyebrow": "WHAT THEY SAY",
+    "h2_1": "Not just another tool.",
+    "h2_em": "conversation",
+    "h2_2": "that opens up.",
+    "items": [
+      { "q": "We stopped arguing about groceries, and started talking about who was even thinking of buying them. EqualHome put a word to it.", "name": "Léa & Marc", "sub": "Couple · Paris" },
+      { "q": "I was afraid it would turn our home into a spreadsheet. Instead: we talk less about chores, more about balance.", "name": "Inès & Théo", "sub": "Couple · Lyon" },
+      { "q": "My husband didn't realise. The Sunday evening AI insights have become our honest ritual.", "name": "Sophie & David", "sub": "Couple · Marseille" }
+    ]
+  },
+  "pricing": {
+    "eyebrow": "PRICING",
+    "h2_em": "start",
+    "h2_1": "Free to",
+    "h2_2": "Premium to go further.",
+    "trial": "A 7-day trial with no commitment. You keep access to your history even if you switch back to free.",
+    "free_name": "Free",
+    "free_price": "€0",
+    "free_features": ["Up to 10 tasks", "Basic Balance Score", "Partner invite", "Pre-defined categories"],
+    "free_cta": "Download",
+    "premium_name": "Premium",
+    "premium_price": "€49.99",
+    "premium_period": "/ year · €4.16/month",
+    "premium_badge": "-30%",
+    "premium_features": ["Unlimited tasks", "Weekly AI insights", "Unlimited history", "Shareable reports", "Guided Discussion mode"],
+    "premium_cta": "7-day trial"
+  },
+  "cta": {
+    "eyebrow": "ONE LAST THING",
+    "h2_em": "together",
+    "h2_1": "Home life is better",
+    "body": "The app is coming soon. Join the waitlist and be among the first to try EqualHome.",
+    "waitlist_label": "Join the waitlist"
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "h2_em": "questions",
+    "h2_2": ", our answers.",
+    "contact": "Another question? Write to us at",
+    "email": "bonjour@equalhome.app",
+    "items": [
+      { "q": "What if my partner refuses to sign up?", "a": "You can use EqualHome solo: you track your own load, see your imbalances, and share a visual report. The app remains useful, and the invite remains possible at any time." },
+      { "q": "Will the AI judge who does more?", "a": "No. The tone is descriptive, never accusatory. The insights explain and suggest. They don't score anyone. EqualHome makes things visible, never guilty." },
+      { "q": "Is my data private?", "a": "Your data is encrypted and never sold. You can export or delete your household at any time from Settings." },
+      { "q": "How does EqualHome distinguish mental load from execution?", "a": "Each task can be logged with a 'I also managed the mental load' toggle. This adds 1 to 3 bonus points depending on the weight set by your couple. The weight is fully customisable." },
+      { "q": "What languages are available?", "a": "French and English at launch. German, Spanish, Italian, Dutch and Portuguese coming within 6 months." }
+    ]
+  },
+  "footer": {
+    "cols": [
+      { "title": "PRODUCT", "links": [
+        { "label": "How it works", "href": "/#comment" },
+        { "label": "Mental load", "href": "/#mental" },
+        { "label": "Pricing", "href": "/#pricing" },
+        { "label": "Waitlist", "href": "/#cta" }
+      ]},
+      { "title": "EQUALHOME", "links": [
+        { "label": "Manifesto", "href": "/#footer" },
+        { "label": "Research", "href": "#" },
+        { "label": "Press", "href": "mailto:press@equalhome.app" },
+        { "label": "Newsletter", "href": "#" }
+      ]},
+      { "title": "LEGAL", "links": [
+        { "label": "Privacy", "href": "/privacy" },
+        { "label": "Terms", "href": "/terms" },
+        { "label": "Cookies", "href": "/cookies" },
+        { "label": "Support", "href": "/support" }
+      ]}
+    ],
+    "tagline": "EqualHome makes the mental load of your household visible, so you can truly share it.",
+    "copy": "© 2026 EQUALHOME · DIGITALL ELEVATE",
+    "made": "MADE IN FRANCE · FOR THE WORLD"
+  },
+  "cookie_banner": {
+    "text": "We use anonymised analytics cookies to improve the site.",
+    "learn_more": "Learn more",
+    "refuse": "Decline",
+    "accept": "Accept",
+    "aria": "Cookie preferences"
+  },
+  "legal": {
+    "updated_prefix": "Last updated ·"
+  }
+}

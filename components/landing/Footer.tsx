@@ -2,29 +2,30 @@
 
 import { EHLogo } from "@/components/icons";
 
-const COLS = [
-  { title: "PRODUIT", links: [
-    { label: "Comment ça marche", href: "/#comment" },
-    { label: "Charge mentale",    href: "/#mental" },
-    { label: "Tarifs",            href: "/#pricing" },
-    { label: "iOS",               href: "/#cta" },
-    { label: "Android",           href: "/#cta" },
-  ]},
-  { title: "EQUALHOME", links: [
-    { label: "Manifeste",   href: "/#footer" },
-    { label: "Recherche",   href: "#" },
-    { label: "Presse",      href: "mailto:presse@equalhome.app" },
-    { label: "Newsletter",  href: "#" },
-  ]},
-  { title: "LÉGAL", links: [
-    { label: "Confidentialité", href: "/privacy" },
-    { label: "CGU",             href: "/terms" },
-    { label: "Cookies",         href: "/cookies" },
-    { label: "Support",         href: "/support" },
-  ]},
-];
+interface FooterLink { label: string; href: string; }
+interface FooterCol { title: string; links: FooterLink[]; }
+interface FooterDict {
+  cols: FooterCol[];
+  tagline: string;
+  copy: string;
+  made: string;
+}
 
-export function Footer() {
+interface FooterProps {
+  lang: string;
+  dict: FooterDict;
+}
+
+export function Footer({ lang, dict }: FooterProps) {
+  // Prefix relative href links with lang
+  const prefixedCols = dict.cols.map(col => ({
+    ...col,
+    links: col.links.map(l => ({
+      ...l,
+      href: l.href.startsWith("/") ? `/${lang}${l.href}` : l.href,
+    })),
+  }));
+
   return (
     <footer
       id="footer"
@@ -40,12 +41,14 @@ export function Footer() {
         <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr 1fr", gap: 60, alignItems: "flex-start" }}
           className="footer-grid">
           <div>
-            <EHLogo size={20} />
+            <a href={`/${lang}`} style={{ textDecoration: "none" }}>
+              <EHLogo size={20} />
+            </a>
             <p style={{ marginTop: 16, fontSize: 13.5, color: "var(--eh-ink-2)", lineHeight: 1.5, maxWidth: 320 }}>
-              EqualHome rend visible la charge mentale du foyer, pour la partager vraiment.
+              {dict.tagline}
             </p>
           </div>
-          {COLS.map(({ title, links }) => (
+          {prefixedCols.map(({ title, links }) => (
             <div key={title}>
               <div className="eh-eyebrow" style={{ marginBottom: 14 }}>{title}</div>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -71,13 +74,13 @@ export function Footer() {
             fontFamily: "var(--font-dm-mono), ui-monospace, monospace",
             fontSize: 11, letterSpacing: "0.12em", color: "var(--eh-ink-2)",
           }}>
-            © 2026 EQUALHOME · DIGITALL ELEVATE
+            {dict.copy}
           </span>
           <span style={{
             fontFamily: "var(--font-dm-mono), ui-monospace, monospace",
             fontSize: 11, letterSpacing: "0.12em", color: "var(--eh-ink-2)",
           }}>
-            FAIT EN FRANCE · POUR LE MONDE
+            {dict.made}
           </span>
         </div>
       </div>

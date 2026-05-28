@@ -1,18 +1,38 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { EHLogo } from "@/components/icons";
 
-const links = [
-  { label: "Le produit",    href: "#comment" },
-  { label: "Charge mentale", href: "#mental" },
-  { label: "Tarifs",        href: "#pricing" },
-  { label: "Manifeste",     href: "#footer" },
-];
+interface NavDict {
+  product: string;
+  mental: string;
+  pricing: string;
+  manifesto: string;
+  login: string;
+  download: string;
+  switch_lang: string;
+}
 
-export function Nav() {
+interface NavProps {
+  lang: string;
+  dict: NavDict;
+}
+
+export function Nav({ lang, dict }: NavProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const links = [
+    { label: dict.product,   href: `/${lang}/#comment` },
+    { label: dict.mental,    href: `/${lang}/#mental` },
+    { label: dict.pricing,   href: `/${lang}/#pricing` },
+    { label: dict.manifesto, href: `/${lang}/#footer` },
+  ];
+
+  const otherLang = lang === "fr" ? "en" : "fr";
+  const langSwitchHref = pathname.replace(new RegExp(`^/${lang}`), `/${otherLang}`) || `/${otherLang}`;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -25,6 +45,10 @@ export function Nav() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
+
+  function switchLang() {
+    document.cookie = `NEXT_LOCALE=${otherLang}; path=/; max-age=31536000; SameSite=Lax`;
+  }
 
   return (
     <header style={{
@@ -39,7 +63,9 @@ export function Nav() {
         padding: "22px 80px",
         maxWidth: 1440, margin: "0 auto",
       }} className="nav-inner">
-        <EHLogo size={22} />
+        <a href={`/${lang}`} style={{ textDecoration: "none" }}>
+          <EHLogo size={22} />
+        </a>
 
         <nav style={{ display: "flex", alignItems: "center", gap: 36, fontSize: 14, color: "var(--eh-ink)" }}
           className="nav-links">
@@ -54,17 +80,33 @@ export function Nav() {
         </nav>
 
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <a
+            href={langSwitchHref}
+            onClick={switchLang}
+            style={{
+              fontFamily: "var(--font-dm-mono), ui-monospace, monospace",
+              fontSize: 11, letterSpacing: "0.14em",
+              color: "var(--eh-ink-2)", textDecoration: "none",
+              padding: "6px 10px", borderRadius: 6,
+              border: "1px solid var(--eh-line-strong)",
+              transition: "color .15s, border-color .15s",
+            }}
+            onMouseEnter={e => { e.currentTarget.style.color = "var(--eh-ink)"; e.currentTarget.style.borderColor = "var(--eh-ink-2)"; }}
+            onMouseLeave={e => { e.currentTarget.style.color = "var(--eh-ink-2)"; e.currentTarget.style.borderColor = "var(--eh-line-strong)"; }}
+          >
+            {dict.switch_lang}
+          </a>
           <a href="#" style={{ color: "var(--eh-ink-2)", textDecoration: "none", fontSize: 14 }}
             className="nav-login">
-            Se connecter
+            {dict.login}
           </a>
-          <a href="#cta" className="nav-cta" style={{
+          <a href={`/${lang}/#cta`} className="nav-cta" style={{
             padding: "10px 18px", borderRadius: 999,
             background: "var(--eh-ink)", color: "var(--eh-bg)",
             fontSize: 13.5, fontWeight: 500, textDecoration: "none",
             display: "inline-flex",
           }}>
-            Télécharger l&apos;app
+            {dict.download}
           </a>
 
           <button
@@ -118,18 +160,30 @@ export function Nav() {
               {l.label}
             </a>
           ))}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 16 }}>
+            <a
+              href="#"
+              onClick={() => setMenuOpen(false)}
+              style={{ color: "var(--eh-ink-2)", textDecoration: "none", fontSize: 14 }}
+            >
+              {dict.login}
+            </a>
+            <a
+              href={langSwitchHref}
+              onClick={switchLang}
+              style={{
+                fontFamily: "var(--font-dm-mono), ui-monospace, monospace",
+                fontSize: 11, letterSpacing: "0.14em",
+                color: "var(--eh-ink-2)", textDecoration: "none",
+                padding: "6px 10px", borderRadius: 6,
+                border: "1px solid var(--eh-line-strong)",
+              }}
+            >
+              {dict.switch_lang}
+            </a>
+          </div>
           <a
-            href="#"
-            onClick={() => setMenuOpen(false)}
-            style={{
-              display: "block", marginTop: 16,
-              color: "var(--eh-ink-2)", textDecoration: "none", fontSize: 14,
-            }}
-          >
-            Se connecter
-          </a>
-          <a
-            href="#cta"
+            href={`/${lang}/#cta`}
             onClick={() => setMenuOpen(false)}
             style={{
               display: "inline-flex", marginTop: 20,
@@ -138,7 +192,7 @@ export function Nav() {
               fontSize: 15, fontWeight: 500, textDecoration: "none",
             }}
           >
-            Télécharger l&apos;app
+            {dict.download}
           </a>
         </div>
       )}

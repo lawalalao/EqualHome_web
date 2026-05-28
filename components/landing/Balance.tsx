@@ -4,18 +4,28 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { BalanceScore } from "@/components/balance";
 
-const LEVELS = [
-  { n: "50/50", l: "Équilibre atteint",      hex: "#4A8B6E" },
-  { n: "60/40", l: "Léger déséquilibre",     hex: "#E8C4A0" },
-  { n: "70/30", l: "Déséquilibre notable",   hex: "#D4785C" },
-  { n: "80/20", l: "Alerte",                 hex: "#C75B39" },
-];
+interface BalanceLabels { aligned: string; soft: string; warning: string; alert: string; }
+interface BalanceDict {
+  eyebrow: string;
+  h2_1: string;
+  h2_em: string;
+  h2_2: string;
+  body: string;
+  labels: BalanceLabels;
+}
 
 const SMALLS = [48, 65, 78];
 
-export function BalanceSection() {
+export function BalanceSection({ dict }: { dict: BalanceDict }) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  const LEVELS = [
+    { n: "50/50", l: dict.labels.aligned, hex: "#4A8B6E" },
+    { n: "60/40", l: dict.labels.soft,    hex: "#E8C4A0" },
+    { n: "70/30", l: dict.labels.warning, hex: "#D4785C" },
+    { n: "80/20", l: dict.labels.alert,   hex: "#C75B39" },
+  ];
 
   return (
     <section
@@ -39,7 +49,7 @@ export function BalanceSection() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="eh-eyebrow" style={{ color: "rgba(255,255,255,0.55)", marginBottom: 14 }}>BALANCE SCORE</div>
+            <div className="eh-eyebrow" style={{ color: "rgba(255,255,255,0.55)", marginBottom: 14 }}>{dict.eyebrow}</div>
             <h2 style={{
               margin: 0,
               fontFamily: "var(--font-fraunces), Georgia, serif",
@@ -48,11 +58,10 @@ export function BalanceSection() {
               letterSpacing: "-0.03em", lineHeight: 1,
               color: "#FAF7F2",
             }}>
-              Un seul chiffre. <br /><em style={{ fontStyle: "italic" }}>Toute</em> la conversation.
+              {dict.h2_1}<br /><em style={{ fontStyle: "italic" }}>{dict.h2_em}</em> {dict.h2_2}
             </h2>
             <p style={{ marginTop: 28, fontSize: 17, color: "rgba(255,255,255,0.75)", lineHeight: 1.55, maxWidth: 480 }}>
-              Le Balance Score combine vos tâches d&apos;exécution et votre charge mentale en une lecture honnête.
-              Pas de classement, pas de score moral. Juste la réalité, pour en parler autrement.
+              {dict.body}
             </p>
 
             <div style={{ marginTop: 36, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, maxWidth: 480 }}>

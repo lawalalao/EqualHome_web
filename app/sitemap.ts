@@ -1,13 +1,25 @@
 import type { MetadataRoute } from "next";
 
 const BASE = "https://equalhome.app";
+const LOCALES = ["fr", "en"] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
+
+  const localizedPages = (path: string, freq: MetadataRoute.Sitemap[0]["changeFrequency"], priority: number) =>
+    LOCALES.map(l => ({
+      url: `${BASE}/${l}${path}`,
+      lastModified: now,
+      changeFrequency: freq,
+      priority,
+    }));
+
   return [
-    { url: BASE,                  lastModified: new Date(), changeFrequency: "weekly",  priority: 1.0 },
-    { url: `${BASE}/support`,     lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE}/privacy`,     lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
-    { url: `${BASE}/terms`,       lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
-    { url: `${BASE}/cookies`,     lastModified: new Date(), changeFrequency: "monthly", priority: 0.3 },
+    { url: BASE,      lastModified: now, changeFrequency: "weekly", priority: 1.0 },
+    ...localizedPages("",          "weekly",  1.0),
+    ...localizedPages("/support",  "monthly", 0.8),
+    ...localizedPages("/privacy",  "monthly", 0.5),
+    ...localizedPages("/terms",    "monthly", 0.5),
+    ...localizedPages("/cookies",  "monthly", 0.3),
   ];
 }

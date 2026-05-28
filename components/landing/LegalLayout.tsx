@@ -1,19 +1,41 @@
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 
+interface NavDict {
+  product: string;
+  mental: string;
+  pricing: string;
+  manifesto: string;
+  login: string;
+  download: string;
+  switch_lang: string;
+}
+interface FooterLink { label: string; href: string; }
+interface FooterCol { title: string; links: FooterLink[]; }
+interface FooterDict {
+  cols: FooterCol[];
+  tagline: string;
+  copy: string;
+  made: string;
+}
+
 interface LegalLayoutProps {
+  lang: string;
+  navDict: NavDict;
+  footerDict: FooterDict;
+  updatedPrefix: string;
   title: string;
   updated: string;
   children: React.ReactNode;
 }
 
-export function LegalLayout({ title, updated, children }: LegalLayoutProps) {
+export function LegalLayout({ lang, navDict, footerDict, updatedPrefix, title, updated, children }: LegalLayoutProps) {
   return (
     <div style={{ background: "var(--eh-bg)", minHeight: "100vh", overflowX: "hidden" }}>
-      <Nav />
+      <Nav lang={lang} dict={navDict} />
       <main style={{ maxWidth: 720, margin: "0 auto", padding: "72px 24px 120px" }}>
         <p className="eh-eyebrow" style={{ marginBottom: 16, color: "var(--eh-ink-3)" }}>
-          Dernière mise à jour · {updated}
+          {updatedPrefix} {updated}
         </p>
         <h1 style={{
           fontFamily: "var(--font-fraunces), Georgia, serif",
@@ -30,7 +52,7 @@ export function LegalLayout({ title, updated, children }: LegalLayoutProps) {
           {children}
         </div>
       </main>
-      <Footer />
+      <Footer lang={lang} dict={footerDict} />
       <style>{`
         .legal-content h2 {
           font-family: var(--font-fraunces), Georgia, serif !important;

@@ -5,6 +5,24 @@ import { motion, useInView } from "framer-motion";
 import { BalanceScore, CategoryBars } from "@/components/balance";
 import { EH_CAT, Ico } from "@/components/icons";
 
+interface HowDict {
+  eyebrow: string;
+  h2_em: string;
+  h2_1: string;
+  h2_2: string;
+  steps: Array<{ num: string; title: string; desc: string }>;
+  step1_header: string;
+  step1_subtitle: string;
+  step1_name1: string;
+  step1_name2: string;
+  step1_cta: string;
+  step2_header: string;
+  step2_items: string[];
+  step2_toggle: string;
+  step2_cta: string;
+  step3_label: string;
+}
+
 function MiniPhone({ children }: { children: React.ReactNode }) {
   return (
     <div style={{
@@ -18,14 +36,14 @@ function MiniPhone({ children }: { children: React.ReactNode }) {
   );
 }
 
-function MiniOnboarding() {
+function MiniOnboarding({ dict }: { dict: HowDict }) {
   return (
     <div style={{ padding: "34px 18px", display: "flex", flexDirection: "column", gap: 14 }}>
-      <div className="eh-eyebrow" style={{ color: "var(--eh-primary)", fontSize: 9 }}>FONDER LE FOYER</div>
+      <div className="eh-eyebrow" style={{ color: "var(--eh-primary)", fontSize: 9 }}>{dict.step1_header}</div>
       <div style={{ fontFamily: "var(--font-fraunces), Georgia, serif", fontSize: 20, letterSpacing: "-0.018em", lineHeight: 1.1 }}>
-        Vos <em>prénoms</em> pour commencer.
+        <em>{dict.step1_subtitle}</em>
       </div>
-      {["Camille", "Sacha"].map((name, i) => (
+      {[dict.step1_name1, dict.step1_name2].map((name, i) => (
         <div key={name} style={{
           padding: "10px 12px", background: "var(--eh-surface)",
           borderRadius: 10, border: "1px solid var(--eh-line-strong)",
@@ -40,47 +58,50 @@ function MiniOnboarding() {
         padding: "10px 0", background: "var(--eh-primary)", color: "#fff",
         borderRadius: 10, textAlign: "center", fontSize: 12, fontWeight: 500,
       }}>
-        Continuer
+        {dict.step1_cta}
       </div>
     </div>
   );
 }
 
-function MiniQuickLog() {
-  const tasks = [["🍽", "Cuisiner le dîner"], ["👶", "Prise RDV pédiatre"], ["💰", "Renouveler assurance"]];
+function MiniQuickLog({ dict }: { dict: HowDict }) {
   return (
     <div style={{ padding: "34px 18px", display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ fontFamily: "var(--font-fraunces), Georgia, serif", fontSize: 18, letterSpacing: "-0.018em" }}>Qu&apos;as-tu fait ?</div>
-      {tasks.map(([g, t]) => (
-        <div key={t} style={{
-          display: "flex", alignItems: "center", gap: 8,
-          padding: "8px 10px", background: "var(--eh-surface)",
-          border: "1px solid var(--eh-line)", borderRadius: 10,
-        }}>
-          <span style={{ fontSize: 14 }}>{g}</span>
-          <span style={{ fontFamily: "var(--font-dm-sans), system-ui, sans-serif", fontSize: 11.5, fontWeight: 500, flex: 1 }}>{t}</span>
-        </div>
-      ))}
+      <div style={{ fontFamily: "var(--font-fraunces), Georgia, serif", fontSize: 18, letterSpacing: "-0.018em" }}>{dict.step2_header}</div>
+      {dict.step2_items.map((item) => {
+        const [g, ...rest] = item.split(" ");
+        const t = rest.join(" ");
+        return (
+          <div key={item} style={{
+            display: "flex", alignItems: "center", gap: 8,
+            padding: "8px 10px", background: "var(--eh-surface)",
+            border: "1px solid var(--eh-line)", borderRadius: 10,
+          }}>
+            <span style={{ fontSize: 14 }}>{g}</span>
+            <span style={{ fontFamily: "var(--font-dm-sans), system-ui, sans-serif", fontSize: 11.5, fontWeight: 500, flex: 1 }}>{t}</span>
+          </div>
+        );
+      })}
       <div style={{
         padding: "8px 10px",
         background: "rgba(212,120,92,0.10)", border: "1px solid rgba(212,120,92,0.4)",
         borderRadius: 10, display: "flex", alignItems: "center", gap: 8,
       }}>
         <Ico name="spark" size={14} stroke="var(--eh-accent)" />
-        <span style={{ fontFamily: "var(--font-dm-sans), system-ui, sans-serif", fontSize: 10, fontWeight: 500 }}>+ Charge mentale</span>
+        <span style={{ fontFamily: "var(--font-dm-sans), system-ui, sans-serif", fontSize: 10, fontWeight: 500 }}>{dict.step2_toggle}</span>
       </div>
       <div style={{ flex: 1 }} />
       <div style={{
         padding: "10px 0", background: "var(--eh-primary)", color: "#fff",
         borderRadius: 10, textAlign: "center", fontSize: 12, fontWeight: 500,
       }}>
-        Enregistrer
+        {dict.step2_cta}
       </div>
     </div>
   );
 }
 
-function MiniBalance() {
+function MiniBalance({ dict }: { dict: HowDict }) {
   const rows = [
     { ...EH_CAT[0], a: 38, b: 62 },
     { ...EH_CAT[1], a: 55, b: 45 },
@@ -88,7 +109,7 @@ function MiniBalance() {
   ];
   return (
     <div style={{ padding: "34px 18px", display: "flex", flexDirection: "column", alignItems: "center", gap: 18 }}>
-      <div className="eh-eyebrow" style={{ color: "var(--eh-primary)", fontSize: 9 }}>BALANCE · SEMAINE 21</div>
+      <div className="eh-eyebrow" style={{ color: "var(--eh-primary)", fontSize: 9 }}>{dict.step3_label}</div>
       <BalanceScore scoreA={52} size={150} showLegend={false} caption={false} />
       <div style={{ alignSelf: "stretch", marginTop: 18 }}>
         <CategoryBars compact rows={rows} />
@@ -97,15 +118,15 @@ function MiniBalance() {
   );
 }
 
-const STEPS = [
-  { n: "01", title: "Fondez votre foyer", body: "Vos prénoms, votre langue, une couleur chacun. C'est tout.", Phone: MiniOnboarding },
-  { n: "02", title: "Loggez en 1 tap", body: "Tâches d'exécution + charge mentale. Un toggle suffit pour distinguer les deux.", Phone: MiniQuickLog },
-  { n: "03", title: "Voyez l'équilibre", body: "Un Balance Score vivant, mis à jour en temps réel. Lisible d'un coup d'œil.", Phone: MiniBalance },
-];
-
-export function How() {
+export function How({ dict }: { dict: HowDict }) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  const PHONES = [
+    () => <MiniOnboarding dict={dict} />,
+    () => <MiniQuickLog dict={dict} />,
+    () => <MiniBalance dict={dict} />,
+  ];
 
   return (
     <section ref={ref} id="comment" style={{ padding: "140px 80px", maxWidth: 1440, margin: "0 auto" }}
@@ -116,7 +137,7 @@ export function How() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7 }}
       >
-        <div className="eh-eyebrow" style={{ marginBottom: 14 }}>COMMENT ÇA MARCHE</div>
+        <div className="eh-eyebrow" style={{ marginBottom: 14 }}>{dict.eyebrow}</div>
         <h2 style={{
           margin: 0,
           fontFamily: "var(--font-fraunces), Georgia, serif",
@@ -124,40 +145,43 @@ export function How() {
           fontSize: "clamp(40px, 4.5vw, 64px)",
           letterSpacing: "-0.03em", lineHeight: 1.02,
         }}>
-          Trois minutes pour <em style={{ fontStyle: "italic" }}>vous installer</em>.<br />
-          Une vie pour vous équilibrer.
+          {dict.h2_1} <em style={{ fontStyle: "italic" }}>{dict.h2_em}</em>.<br />
+          {dict.h2_2}
         </h2>
       </motion.div>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 32 }}
         className="how-grid">
-        {STEPS.map(({ n, title, body, Phone }, i) => (
-          <motion.div key={n}
-            initial={{ opacity: 0, y: 24 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 + i * 0.1 }}
-          >
-            <div style={{
-              height: 420, borderRadius: 28, padding: 28,
-              background: "var(--eh-bg-deep)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-            }}>
-              <MiniPhone><Phone /></MiniPhone>
-            </div>
-            <div style={{ marginTop: 24, display: "flex", alignItems: "baseline", gap: 14 }}>
-              <span style={{
-                fontFamily: "var(--font-dm-mono), ui-monospace, monospace",
-                fontSize: 12, letterSpacing: "0.14em", color: "var(--eh-accent)",
-              }}>{n}</span>
-              <h3 style={{
-                margin: 0,
-                fontFamily: "var(--font-fraunces), Georgia, serif",
-                fontWeight: 400, fontSize: 26, letterSpacing: "-0.018em",
-              }}>{title}</h3>
-            </div>
-            <p style={{ marginTop: 8, fontSize: 15, color: "var(--eh-ink-2)", lineHeight: 1.5 }}>{body}</p>
-          </motion.div>
-        ))}
+        {dict.steps.map(({ num, title, desc }, i) => {
+          const Phone = PHONES[i];
+          return (
+            <motion.div key={num}
+              initial={{ opacity: 0, y: 24 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.1 + i * 0.1 }}
+            >
+              <div style={{
+                height: 420, borderRadius: 28, padding: 28,
+                background: "var(--eh-bg-deep)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}>
+                <MiniPhone><Phone /></MiniPhone>
+              </div>
+              <div style={{ marginTop: 24, display: "flex", alignItems: "baseline", gap: 14 }}>
+                <span style={{
+                  fontFamily: "var(--font-dm-mono), ui-monospace, monospace",
+                  fontSize: 12, letterSpacing: "0.14em", color: "var(--eh-accent)",
+                }}>{num}</span>
+                <h3 style={{
+                  margin: 0,
+                  fontFamily: "var(--font-fraunces), Georgia, serif",
+                  fontWeight: 400, fontSize: 26, letterSpacing: "-0.018em",
+                }}>{title}</h3>
+              </div>
+              <p style={{ marginTop: 8, fontSize: 15, color: "var(--eh-ink-2)", lineHeight: 1.5 }}>{desc}</p>
+            </motion.div>
+          );
+        })}
       </div>
 
       <style>{`

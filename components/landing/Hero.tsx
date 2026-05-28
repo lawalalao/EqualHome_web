@@ -5,6 +5,22 @@ import { motion, useInView } from "framer-motion";
 import { BalanceScore, CategoryBars } from "@/components/balance";
 import { EH_CAT, Ico } from "@/components/icons";
 
+interface HeroDict {
+  eyebrow: string;
+  h1_1: string;
+  h1_em: string;
+  h1_2: string;
+  body_1: string;
+  body_em: string;
+  body_2: string;
+  cta_primary: string;
+  cta_secondary: string;
+  badge: string;
+  beta: string;
+  flags: string;
+  balance_label: string;
+}
+
 const HERO_ROWS = [
   { ...EH_CAT[0], a: 38, b: 62 },
   { ...EH_CAT[1], a: 55, b: 45 },
@@ -21,7 +37,7 @@ function fadeRiseProps(inView: boolean, delay: number) {
   };
 }
 
-export function Hero() {
+export function Hero({ dict }: { dict: HeroDict }) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true });
 
@@ -38,7 +54,7 @@ export function Hero() {
             style={{ color: "var(--eh-primary)", marginBottom: 18 }}
             {...fadeRiseProps(inView, 0)}
           >
-            NOUVEAU · EQUALHOME POUR LE COUPLE
+            {dict.eyebrow}
           </motion.div>
 
           <motion.h1
@@ -53,16 +69,15 @@ export function Hero() {
             }}
             {...fadeRiseProps(inView, 0.05)}
           >
-            Rends l&apos;<em style={{ fontStyle: "italic", fontWeight: 400 }}>invisible</em><br />
-            visible.
+            {dict.h1_1}<em style={{ fontStyle: "italic", fontWeight: 400 }}>{dict.h1_em}</em><br />
+            {dict.h1_2}
           </motion.h1>
 
           <motion.p
             style={{ marginTop: 30, fontSize: 19, color: "var(--eh-ink-2)", lineHeight: 1.5, maxWidth: 520 }}
             {...fadeRiseProps(inView, 0.1)}
           >
-            EqualHome est la première app qui rend visible la charge mentale du foyer, pour la partager vraiment.
-            Pas seulement les corvées : <em>aussi le travail cognitif</em> qui pèse en silence.
+            {dict.body_1} <em>{dict.body_em}</em> {dict.body_2}
           </motion.p>
 
           <motion.div
@@ -86,7 +101,7 @@ export function Hero() {
                 (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 22px rgba(45,95,78,0.22)";
               }}
             >
-              Télécharger gratuitement <Ico name="arrow" size={18} stroke="currentColor" sw={2} />
+              {dict.cta_primary} <Ico name="arrow" size={18} stroke="currentColor" sw={2} />
             </a>
             <button style={{
               padding: "18px 28px", borderRadius: 14,
@@ -94,10 +109,10 @@ export function Hero() {
               border: "1px solid var(--eh-line-strong)",
               cursor: "pointer", fontWeight: 500, fontSize: 16,
             }}>
-              Voir la démo
+              {dict.cta_secondary}
             </button>
             <span style={{ fontFamily: "var(--font-dm-sans), system-ui, sans-serif", fontSize: 13, color: "var(--eh-ink-2)" }}>
-              iOS · Android · Gratuit pour commencer
+              {dict.badge}
             </span>
           </motion.div>
 
@@ -114,8 +129,8 @@ export function Hero() {
               ))}
             </div>
             <div>
-              <div style={{ fontSize: 14, fontWeight: 500 }}>+ 12 000 couples en bêta</div>
-              <div style={{ fontSize: 12.5, color: "var(--eh-ink-2)" }}>France · UK · DE · NL · IT</div>
+              <div style={{ fontSize: 14, fontWeight: 500 }}>{dict.beta}</div>
+              <div style={{ fontSize: 12.5, color: "var(--eh-ink-2)" }}>{dict.flags}</div>
             </div>
           </motion.div>
         </div>
@@ -128,7 +143,6 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
           className="hero-visual"
         >
-          {/* Halos */}
           <div style={{
             position: "absolute", width: 520, height: 520, borderRadius: "50%",
             background: "radial-gradient(circle at 30% 30%, var(--eh-secondary-soft), transparent 65%)",
@@ -142,7 +156,6 @@ export function Hero() {
             pointerEvents: "none",
           }} />
 
-          {/* Card */}
           <div className="hero-card" style={{
             position: "relative",
             background: "var(--eh-bg)",
@@ -152,7 +165,7 @@ export function Hero() {
             display: "flex", flexDirection: "column", alignItems: "center", gap: 28,
             width: 460,
           }}>
-            <div className="eh-eyebrow" style={{ color: "var(--eh-primary)" }}>VOTRE BALANCE · SEMAINE 21</div>
+            <div className="eh-eyebrow" style={{ color: "var(--eh-primary)" }}>{dict.balance_label}</div>
             <BalanceScore scoreA={52} size={300} animate />
             <div style={{ marginTop: 32, alignSelf: "stretch" }}>
               <CategoryBars compact rows={HERO_ROWS} />

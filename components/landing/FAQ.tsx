@@ -4,30 +4,17 @@ import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Ico } from "@/components/icons";
 
-const ITEMS = [
-  {
-    q: "Que se passe-t-il si mon partenaire refuse de s'inscrire ?",
-    a: "Vous pouvez utiliser EqualHome en solo : vous suivez votre propre charge, vous voyez vos déséquilibres, et vous pouvez partager un rapport visuel. L'app reste utile, et l'invitation reste possible à tout moment.",
-  },
-  {
-    q: "L'IA va-t-elle juger qui en fait plus ?",
-    a: "Non. Le ton est descriptif, jamais accusateur. Les insights expliquent et suggèrent. Ils ne notent personne. EqualHome rend visible, jamais coupable.",
-  },
-  {
-    q: "Mes données sont-elles privées ?",
-    a: "Vos données sont chiffrées et ne sont jamais vendues. Vous pouvez exporter ou supprimer votre foyer à tout moment depuis les Réglages.",
-  },
-  {
-    q: "Comment EqualHome distingue charge mentale et exécution ?",
-    a: "Chaque tâche peut être loggée avec un toggle « j'ai aussi géré la charge mentale ». Cela ajoute 1 à 3 points bonus selon le poids défini par votre couple. Le poids est entièrement personnalisable.",
-  },
-  {
-    q: "Disponible en quelles langues ?",
-    a: "Français et anglais au lancement. Allemand, espagnol, italien, néerlandais et portugais arrivent dans les 6 mois.",
-  },
-];
+interface FAQItem { q: string; a: string; }
+interface FAQDict {
+  eyebrow: string;
+  h2_em: string;
+  h2_2: string;
+  contact: string;
+  email: string;
+  items: FAQItem[];
+}
 
-export function FAQ() {
+export function FAQ({ dict }: { dict: FAQDict }) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [open, setOpen] = useState<number | null>(0);
@@ -48,7 +35,7 @@ export function FAQ() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
-            <div className="eh-eyebrow" style={{ marginBottom: 14 }}>FAQ</div>
+            <div className="eh-eyebrow" style={{ marginBottom: 14 }}>{dict.eyebrow}</div>
             <h2 style={{
               margin: 0,
               fontFamily: "var(--font-fraunces), Georgia, serif",
@@ -56,12 +43,12 @@ export function FAQ() {
               fontSize: "clamp(36px, 4vw, 56px)",
               letterSpacing: "-0.03em", lineHeight: 1,
             }}>
-              Vos <em style={{ fontStyle: "italic" }}>questions</em>, nos réponses.
+              <em style={{ fontStyle: "italic" }}>{dict.h2_em}</em>{dict.h2_2}
             </h2>
             <p style={{ marginTop: 24, fontSize: 15, color: "var(--eh-ink-2)", lineHeight: 1.5, maxWidth: 380 }}>
-              Une autre question ? Écrivez-nous à{" "}
-              <a href="mailto:bonjour@equalhome.app" style={{ color: "var(--eh-ink)", fontWeight: 600, textDecoration: "none" }}>
-                bonjour@equalhome.app
+              {dict.contact}{" "}
+              <a href={`mailto:${dict.email}`} style={{ color: "var(--eh-ink)", fontWeight: 600, textDecoration: "none" }}>
+                {dict.email}
               </a>
             </p>
           </motion.div>
@@ -71,7 +58,7 @@ export function FAQ() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            {ITEMS.map(({ q, a }, i) => (
+            {dict.items.map(({ q, a }, i) => (
               <div key={q} style={{ borderTop: "1px solid var(--eh-line-strong)" }}>
                 <button
                   onClick={() => setOpen(open === i ? null : i)}

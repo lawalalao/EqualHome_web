@@ -4,14 +4,19 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { AnimatedNumber } from "@/components/balance";
 
-const STATS = [
-  { raw: 71, display: "71 %", suffix: " %", label: "des tâches mentales du foyer portées par une seule personne, généralement la femme.", cite: "University of Bath & Melbourne, 2024" },
-  { raw: 85, display: "85 %", suffix: " %", label: "des tâches de ménage et 83% de planification portées par les mères.", cite: "Journal of Marriage & Family" },
-  { raw: null, display: "60/40", suffix: "", label: "le déséquilibre persiste dans les couples LGBTQ+ (vs 80/20 hétéro).", cite: "Helgøy & Weeks, 2024" },
-  { raw: 4, display: "4", suffix: "", label: "phases ignorées par les apps de tâches : anticiper, décider, surveiller, exécuter.", cite: "USC Mental Load Research" },
-];
+interface ProofStat {
+  raw: number | null;
+  display: string;
+  suffix: string;
+  label: string;
+  cite: string;
+}
+interface ProofDict {
+  eyebrow: string;
+  stats: ProofStat[];
+}
 
-export function Proof() {
+export function Proof({ dict }: { dict: ProofDict }) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -37,12 +42,12 @@ export function Proof() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
       >
-        LA DONNÉE EST CLAIRE
+        {dict.eyebrow}
       </motion.div>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 40 }}
         className="proof-grid">
-        {STATS.map((s, i) => (
+        {dict.stats.map((s, i) => (
           <motion.div
             key={s.cite}
             initial={{ opacity: 0, y: 20 }}

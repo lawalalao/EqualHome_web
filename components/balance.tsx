@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useSpring } from "framer-motion";
 
+// SVG circle element with Framer Motion support
+const MotionCircle = motion.circle;
+
 export interface CategoryRow {
   id: string;
   name: string;
@@ -55,6 +58,14 @@ export function BalanceScore({
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
+  // Delay breathing animation until spring score animation settles
+  const [breatheReady, setBreatheReady] = useState(false);
+  useEffect(() => {
+    if (!inView) return;
+    const t = setTimeout(() => setBreatheReady(true), animate ? 2400 : 400);
+    return () => clearTimeout(t);
+  }, [inView, animate]);
+
   useEffect(() => {
     if (animate && inView) {
       springA.set(scoreA);
@@ -96,13 +107,19 @@ export function BalanceScore({
 
         <circle cx={cx} cy={cy} r={Math.max(rA, rB) + 14} fill="var(--eh-bg-deep)" opacity="0.55" />
 
-        <circle cx={cxA} cy={cy} r={rA}
+        <MotionCircle
+          cx={cxA} cy={cy} r={rA}
           fill={`url(#ehA-${size})`}
-          style={{ mixBlendMode: "multiply", transition: "all .55s cubic-bezier(.22,1,.36,1)" }}
+          style={{ mixBlendMode: "multiply", transition: "cx .55s cubic-bezier(.22,1,.36,1)" }}
+          animate={breatheReady ? { r: [rA - 5, rA + 5] } : { r: rA }}
+          transition={{ duration: 4.5, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
         />
-        <circle cx={cxB} cy={cy} r={rB}
+        <MotionCircle
+          cx={cxB} cy={cy} r={rB}
           fill={`url(#ehB-${size})`}
-          style={{ mixBlendMode: "multiply", transition: "all .55s cubic-bezier(.22,1,.36,1)" }}
+          style={{ mixBlendMode: "multiply", transition: "cx .55s cubic-bezier(.22,1,.36,1)" }}
+          animate={breatheReady ? { r: [rB + 4, rB - 6] } : { r: rB }}
+          transition={{ duration: 4.5, repeat: Infinity, repeatType: "mirror", ease: "easeInOut", delay: 1.8 }}
         />
 
         <circle cx={cxA} cy={cy} r={rA} fill="none" stroke="var(--eh-primary-deep)" strokeOpacity="0.35" strokeWidth="0.5" />

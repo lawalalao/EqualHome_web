@@ -4,12 +4,48 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Ico } from "@/components/icons";
 
-const FREE_FEATURES   = ["Jusqu'à 10 tâches", "Balance Score basique", "Invitation partenaire", "Catégories prédéfinies"];
-const PREMIUM_FEATURES = ["Tâches illimitées", "Insights IA hebdo", "Historique illimité", "Rapports partageables", "Mode Discussion guidée"];
+interface PricingDict {
+  eyebrow: string;
+  h2_em: string;
+  h2_1: string;
+  h2_2: string;
+  trial: string;
+  free_name: string;
+  free_price: string;
+  free_features: string[];
+  free_cta: string;
+  premium_name: string;
+  premium_price: string;
+  premium_period: string;
+  premium_badge: string;
+  premium_features: string[];
+  premium_cta: string;
+}
 
-export function Pricing() {
+export function Pricing({ dict }: { dict: PricingDict }) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  const cards = [
+    {
+      title: dict.free_name,
+      price: dict.free_price,
+      period: "",
+      features: dict.free_features,
+      cta: dict.free_cta,
+      highlight: false,
+      badge: null as string | null,
+    },
+    {
+      title: dict.premium_name,
+      price: dict.premium_price,
+      period: dict.premium_period,
+      features: dict.premium_features,
+      cta: dict.premium_cta,
+      highlight: true,
+      badge: dict.premium_badge,
+    },
+  ];
 
   return (
     <section
@@ -27,7 +63,7 @@ export function Pricing() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
-            <div className="eh-eyebrow" style={{ marginBottom: 14 }}>TARIFS</div>
+            <div className="eh-eyebrow" style={{ marginBottom: 14 }}>{dict.eyebrow}</div>
             <h2 style={{
               margin: 0,
               fontFamily: "var(--font-fraunces), Georgia, serif",
@@ -35,20 +71,17 @@ export function Pricing() {
               fontSize: "clamp(38px, 4vw, 64px)",
               letterSpacing: "-0.03em", lineHeight: 1.02,
             }}>
-              Gratuit pour <em style={{ fontStyle: "italic" }}>commencer</em>.<br />
-              Premium pour aller plus loin.
+              {dict.h2_1} <em style={{ fontStyle: "italic" }}>{dict.h2_em}</em>.<br />
+              {dict.h2_2}
             </h2>
             <p style={{ marginTop: 24, fontSize: 16, color: "var(--eh-ink-2)", lineHeight: 1.55, maxWidth: 500 }}>
-              Un essai de 7 jours sans engagement. Vous gardez accès à votre historique même si vous repassez gratuit.
+              {dict.trial}
             </p>
           </motion.div>
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18 }}
             className="price-cards">
-            {[
-              { title: "Gratuit", price: "0 €", period: "", features: FREE_FEATURES, cta: "Télécharger", highlight: false },
-              { title: "Premium", price: "49,99 €", period: "/ an · 4,16 €/mois", features: PREMIUM_FEATURES, cta: "Essai 7 jours", highlight: true },
-            ].map(({ title, price, period, features, cta, highlight }, i) => (
+            {cards.map(({ title, price, period, features, cta, highlight, badge }, i) => (
               <motion.div
                 key={title}
                 style={{
@@ -65,12 +98,12 @@ export function Pricing() {
               >
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
                   <span style={{ fontFamily: "var(--font-fraunces), Georgia, serif", fontSize: 24, letterSpacing: "-0.018em" }}>{title}</span>
-                  {highlight && (
+                  {badge && (
                     <span style={{
                       fontFamily: "var(--font-dm-mono), ui-monospace, monospace",
                       fontSize: 10, padding: "4px 10px", borderRadius: 999,
                       background: "rgba(232,196,160,0.2)", color: "var(--eh-secondary)", letterSpacing: "0.12em",
-                    }}>-30 %</span>
+                    }}>{badge}</span>
                   )}
                 </div>
 

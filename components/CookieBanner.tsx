@@ -5,7 +5,20 @@ import Link from "next/link";
 
 type Consent = "accepted" | "refused" | null;
 
-export function CookieBanner() {
+interface CookieBannerDict {
+  text: string;
+  learn_more: string;
+  refuse: string;
+  accept: string;
+  aria: string;
+}
+
+interface CookieBannerProps {
+  lang: string;
+  dict: CookieBannerDict;
+}
+
+export function CookieBanner({ lang, dict }: CookieBannerProps) {
   const [consent, setConsent] = useState<Consent>(null);
   const [visible, setVisible] = useState(false);
 
@@ -26,10 +39,12 @@ export function CookieBanner() {
 
   if (!visible || consent) return null;
 
+  const cookieHref = `/${lang}/cookies`;
+
   return (
     <div
       role="dialog"
-      aria-label="Gestion des cookies"
+      aria-label={dict.aria}
       style={{
         position: "fixed",
         bottom: 24,
@@ -49,9 +64,9 @@ export function CookieBanner() {
       }}
     >
       <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.5, flex: 1, minWidth: 200, opacity: 0.85 }}>
-        Nous utilisons des cookies analytiques anonymisés pour améliorer le site.{" "}
-        <Link href="/cookies" style={{ color: "var(--eh-secondary)", textDecoration: "underline", textUnderlineOffset: 3 }}>
-          En savoir plus
+        {dict.text}{" "}
+        <Link href={cookieHref} style={{ color: "var(--eh-secondary)", textDecoration: "underline", textUnderlineOffset: 3 }}>
+          {dict.learn_more}
         </Link>
       </p>
       <div style={{ display: "flex", gap: 10, flexShrink: 0 }}>
@@ -67,7 +82,7 @@ export function CookieBanner() {
             fontFamily: "inherit",
           }}
         >
-          Refuser
+          {dict.refuse}
         </button>
         <button
           onClick={() => choose("accepted")}
@@ -81,7 +96,7 @@ export function CookieBanner() {
             fontFamily: "inherit",
           }}
         >
-          Accepter
+          {dict.accept}
         </button>
       </div>
     </div>
