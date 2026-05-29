@@ -117,7 +117,7 @@ export default async function LocaleLayout({
         },
         "contactPoint": {
           "@type": "ContactPoint",
-          "email": "bonjour@equalhome.app",
+          "email": "lawalalaoad@gmail.com",
           "contactType": "customer support",
           "availableLanguage": ["French", "English"],
         },

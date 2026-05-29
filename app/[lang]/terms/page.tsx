@@ -68,7 +68,7 @@ function TermsFr() {
         <li>Vous êtes responsable de la confidentialité de vos identifiants de connexion.</li>
         <li>
           Tout accès non autorisé à votre compte doit être signalé immédiatement à{" "}
-          <a href="mailto:bonjour@equalhome.app">bonjour@equalhome.app</a>.
+          <a href="mailto:lawalalaoad@gmail.com">lawalalaoad@gmail.com</a>.
         </li>
       </ul>
 
@@ -174,7 +174,7 @@ function TermsFr() {
 
       <h2>11. Contact</h2>
       <p>
-        DIGITALL ELEVATE — <a href="mailto:bonjour@equalhome.app">bonjour@equalhome.app</a>
+        DIGITALL ELEVATE — <a href="mailto:lawalalaoad@gmail.com">lawalalaoad@gmail.com</a>
       </p>
       <p>
         Pour toute réclamation ou litige non résolu, vous pouvez recourir gratuitement à un
@@ -214,7 +214,7 @@ function TermsEn() {
         <li>You are responsible for the confidentiality of your login credentials.</li>
         <li>
           Any unauthorised access to your account must be reported immediately to{" "}
-          <a href="mailto:bonjour@equalhome.app">bonjour@equalhome.app</a>.
+          <a href="mailto:lawalalaoad@gmail.com">lawalalaoad@gmail.com</a>.
         </li>
       </ul>
 
@@ -318,7 +318,7 @@ function TermsEn() {
 
       <h2>11. Contact</h2>
       <p>
-        DIGITALL ELEVATE — <a href="mailto:bonjour@equalhome.app">bonjour@equalhome.app</a>
+        DIGITALL ELEVATE — <a href="mailto:lawalalaoad@gmail.com">lawalalaoad@gmail.com</a>
       </p>
       <p>
         For any unresolved complaint or dispute, you may have free recourse to a consumer

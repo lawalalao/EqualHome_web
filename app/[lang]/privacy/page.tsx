@@ -46,7 +46,7 @@ function PrivacyFr() {
       </p>
       <p>
         Contact responsable du traitement :{" "}
-        <a href="mailto:bonjour@equalhome.app">bonjour@equalhome.app</a>
+        <a href="mailto:lawalalaoad@gmail.com">lawalalaoad@gmail.com</a>
       </p>
 
       <hr className="legal-divider" />
@@ -153,7 +153,7 @@ function PrivacyFr() {
 
       <div className="legal-note">
         Pour exercer vos droits, écrivez à{" "}
-        <a href="mailto:bonjour@equalhome.app">bonjour@equalhome.app</a>. Nous répondons
+        <a href="mailto:lawalalaoad@gmail.com">lawalalaoad@gmail.com</a>. Nous répondons
         dans un délai de <strong>30 jours</strong>. Vous pouvez également introduire une
         réclamation auprès de la{" "}
         <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">CNIL</a>{" "}
@@ -193,7 +193,7 @@ function PrivacyEn() {
       </p>
       <p>
         Data controller contact:{" "}
-        <a href="mailto:bonjour@equalhome.app">bonjour@equalhome.app</a>
+        <a href="mailto:lawalalaoad@gmail.com">lawalalaoad@gmail.com</a>
       </p>
 
       <hr className="legal-divider" />
@@ -299,7 +299,7 @@ function PrivacyEn() {
 
       <div className="legal-note">
         To exercise your rights, write to{" "}
-        <a href="mailto:bonjour@equalhome.app">bonjour@equalhome.app</a>. We respond within{" "}
+        <a href="mailto:lawalalaoad@gmail.com">lawalalaoad@gmail.com</a>. We respond within{" "}
         <strong>30 days</strong>. You may also lodge a complaint with your local data protection
         authority (e.g. the ICO in the UK, or the CNIL in France).
       </div>

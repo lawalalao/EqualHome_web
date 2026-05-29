@@ -142,7 +142,7 @@ function CookiesFr() {
       <p>
         Vous disposez d&apos;un droit d&apos;accès, de rectification et de suppression des
         données collectées via les cookies. Pour toute demande, contactez :{" "}
-        <a href="mailto:bonjour@equalhome.app">bonjour@equalhome.app</a>
+        <a href="mailto:lawalalaoad@gmail.com">lawalalaoad@gmail.com</a>
       </p>
       <p>
         Vous pouvez également déposer une réclamation auprès de la{" "}
@@ -263,7 +263,7 @@ function CookiesEn() {
       <p>
         You have the right to access, rectify and delete data collected via cookies.
         For any request, contact:{" "}
-        <a href="mailto:bonjour@equalhome.app">bonjour@equalhome.app</a>
+        <a href="mailto:lawalalaoad@gmail.com">lawalalaoad@gmail.com</a>
       </p>
       <p>
         You may also lodge a complaint with your local data protection authority

@@ -76,8 +76,8 @@ function SupportFr() {
 
       <SupportCard title="✉ E-mail">
         <p style={{ margin: "0 0 8px" }}>
-          <a href="mailto:bonjour@equalhome.app" style={{ color: "var(--eh-primary)", fontWeight: 600, textDecoration: "none" }}>
-            bonjour@equalhome.app
+          <a href="mailto:lawalalaoad@gmail.com" style={{ color: "var(--eh-primary)", fontWeight: 600, textDecoration: "none" }}>
+            lawalalaoad@gmail.com
           </a>
         </p>
         <p style={{ margin: 0, fontSize: 14 }}>
@@ -89,14 +89,14 @@ function SupportFr() {
         <p style={{ margin: 0 }}>
           Décrivez le problème rencontré en précisant votre appareil (modèle, OS, version
           de l&apos;app) et les étapes pour le reproduire. Envoyez le tout à{" "}
-          <a href="mailto:bugs@equalhome.app">bugs@equalhome.app</a>.
+          <a href="mailto:lawalalaoad@gmail.com">lawalalaoad@gmail.com</a>.
         </p>
       </SupportCard>
 
       <SupportCard title="📰 Presse &amp; partenariats">
         <p style={{ margin: 0 }}>
           Pour toute demande presse ou commerciale :{" "}
-          <a href="mailto:presse@equalhome.app">presse@equalhome.app</a>
+          <a href="mailto:lawalalaoad@gmail.com">lawalalaoad@gmail.com</a>
         </p>
       </SupportCard>
 
@@ -134,7 +134,7 @@ function SupportFr() {
       <h3>Exporter mes données</h3>
       <p>
         Vous pouvez demander une exportation de vos données en écrivant à{" "}
-        <a href="mailto:bonjour@equalhome.app">bonjour@equalhome.app</a>.
+        <a href="mailto:lawalalaoad@gmail.com">lawalalaoad@gmail.com</a>.
         Nous vous répondrons dans un délai de 30 jours (droit RGPD).
       </p>
 
@@ -173,8 +173,8 @@ function SupportEn() {
 
       <SupportCard title="✉ Email">
         <p style={{ margin: "0 0 8px" }}>
-          <a href="mailto:bonjour@equalhome.app" style={{ color: "var(--eh-primary)", fontWeight: 600, textDecoration: "none" }}>
-            bonjour@equalhome.app
+          <a href="mailto:lawalalaoad@gmail.com" style={{ color: "var(--eh-primary)", fontWeight: 600, textDecoration: "none" }}>
+            lawalalaoad@gmail.com
           </a>
         </p>
         <p style={{ margin: 0, fontSize: 14 }}>
@@ -186,14 +186,14 @@ function SupportEn() {
         <p style={{ margin: 0 }}>
           Describe the issue you encountered, specifying your device (model, OS, app version)
           and the steps to reproduce it. Send everything to{" "}
-          <a href="mailto:bugs@equalhome.app">bugs@equalhome.app</a>.
+          <a href="mailto:lawalalaoad@gmail.com">lawalalaoad@gmail.com</a>.
         </p>
       </SupportCard>
 
       <SupportCard title="📰 Press &amp; partnerships">
         <p style={{ margin: 0 }}>
           For press enquiries or commercial partnerships:{" "}
-          <a href="mailto:press@equalhome.app">press@equalhome.app</a>
+          <a href="mailto:lawalalaoad@gmail.com">lawalalaoad@gmail.com</a>
         </p>
       </SupportCard>
 
@@ -230,7 +230,7 @@ function SupportEn() {
       <h3>Export my data</h3>
       <p>
         You can request an export of your data by writing to{" "}
-        <a href="mailto:bonjour@equalhome.app">bonjour@equalhome.app</a>.
+        <a href="mailto:lawalalaoad@gmail.com">lawalalaoad@gmail.com</a>.
         We will respond within 30 days (GDPR right).
       </p>
 
