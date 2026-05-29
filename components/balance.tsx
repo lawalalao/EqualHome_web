@@ -214,17 +214,24 @@ interface AnimatedNumberProps {
 export function AnimatedNumber({ target, suffix = "", className }: AnimatedNumberProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+  // Default to `target` so SSR/fallback always shows the real number (never "0")
+  const [display, setDisplay] = useState(target);
+  const [started, setStarted] = useState(false);
   const spring = useSpring(0, { stiffness: 40, damping: 15 });
-  const [display, setDisplay] = useState(0);
 
   useEffect(() => {
-    if (inView) spring.set(target);
-  }, [inView, target, spring]);
+    if (inView && !started) {
+      setStarted(true);
+      setDisplay(0);         // reset before counting up
+      spring.set(target);
+    }
+  }, [inView, started, target, spring]);
 
   useEffect(() => {
+    if (!started) return;
     const unsub = spring.on("change", v => setDisplay(Math.round(v)));
     return unsub;
-  }, [spring]);
+  }, [spring, started]);
 
   return <span ref={ref} className={className}>{display}{suffix}</span>;
 }

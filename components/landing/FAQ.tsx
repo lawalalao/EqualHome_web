@@ -7,6 +7,7 @@ import { Ico } from "@/components/icons";
 interface FAQItem { q: string; a: string; }
 interface FAQDict {
   eyebrow: string;
+  h2_1: string;
   h2_em: string;
   h2_2: string;
   contact: string;
@@ -43,7 +44,7 @@ export function FAQ({ dict }: { dict: FAQDict }) {
               fontSize: "clamp(36px, 4vw, 56px)",
               letterSpacing: "-0.03em", lineHeight: 1,
             }}>
-              <em style={{ fontStyle: "italic" }}>{dict.h2_em}</em>{dict.h2_2}
+              {dict.h2_1} <em style={{ fontStyle: "italic" }}>{dict.h2_em}</em>{dict.h2_2}
             </h2>
             <p style={{ marginTop: 24, fontSize: 15, color: "var(--eh-ink-2)", lineHeight: 1.5, maxWidth: 380 }}>
               {dict.contact}{" "}

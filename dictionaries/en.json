@@ -19,9 +19,14 @@
     "cta_primary": "Download for free",
     "cta_secondary": "See the demo",
     "badge": "iOS · Android · Free to start",
-    "beta": "+ 12,000 couples in beta",
+    "beta": "Available on iOS and Android",
     "flags": "France · UK · DE · NL · IT",
-    "balance_label": "YOUR BALANCE · WEEK 21"
+    "balance_label": "YOUR BALANCE · WEEK 21",
+    "name_a": "Alex",
+    "name_b": "Sam",
+    "cat_meals": "Meals",
+    "cat_cleaning": "Cleaning",
+    "cat_kids": "Kids"
   },
   "proof": {
     "eyebrow": "THE DATA IS CLEAR",
@@ -109,8 +114,8 @@
     ],
     "step1_header": "CREATE HOUSEHOLD",
     "step1_subtitle": "Your names to get started.",
-    "step1_name1": "Camille",
-    "step1_name2": "Sacha",
+    "step1_name1": "Alex",
+    "step1_name2": "Sam",
     "step1_cta": "Continue",
     "step2_header": "What did you do?",
     "step2_items": [
@@ -120,7 +125,10 @@
     ],
     "step2_toggle": "+ Mental load",
     "step2_cta": "Save",
-    "step3_label": "BALANCE · WEEK 21"
+    "step3_label": "BALANCE · WEEK 21",
+    "cat_meals": "Meals",
+    "cat_cleaning": "Cleaning",
+    "cat_kids": "Kids"
   },
   "balance": {
     "eyebrow": "BALANCE SCORE",
@@ -222,7 +230,8 @@
         "q": "What languages are available?",
         "a": "French and English at launch. German, Spanish, Italian, Dutch and Portuguese coming within 6 months."
       }
-    ]
+    ],
+    "h2_1": "Your"
   },
   "footer": {
     "cols": [

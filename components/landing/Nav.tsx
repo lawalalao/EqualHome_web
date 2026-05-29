@@ -96,7 +96,7 @@ export function Nav({ lang, dict }: NavProps) {
           >
             {dict.switch_lang}
           </a>
-          <a href="#" style={{ color: "var(--eh-ink-2)", textDecoration: "none", fontSize: 14 }}
+          <a href="https://app.equalhome.app" style={{ color: "var(--eh-ink-2)", textDecoration: "none", fontSize: 14 }}
             className="nav-login">
             {dict.login}
           </a>
@@ -162,7 +162,7 @@ export function Nav({ lang, dict }: NavProps) {
           ))}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 16 }}>
             <a
-              href="#"
+              href="https://app.equalhome.app"
               onClick={() => setMenuOpen(false)}
               style={{ color: "var(--eh-ink-2)", textDecoration: "none", fontSize: 14 }}
             >

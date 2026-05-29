@@ -21,6 +21,9 @@ interface HowDict {
   step2_toggle: string;
   step2_cta: string;
   step3_label: string;
+  cat_meals: string;
+  cat_cleaning: string;
+  cat_kids: string;
 }
 
 function MiniPhone({ children }: { children: React.ReactNode }) {
@@ -103,9 +106,9 @@ function MiniQuickLog({ dict }: { dict: HowDict }) {
 
 function MiniBalance({ dict }: { dict: HowDict }) {
   const rows = [
-    { ...EH_CAT[0], a: 38, b: 62 },
-    { ...EH_CAT[1], a: 55, b: 45 },
-    { ...EH_CAT[2], a: 70, b: 30 },
+    { ...EH_CAT[0], name: dict.cat_meals,    a: 38, b: 62 },
+    { ...EH_CAT[1], name: dict.cat_cleaning, a: 55, b: 45 },
+    { ...EH_CAT[2], name: dict.cat_kids,     a: 70, b: 30 },
   ];
   return (
     <div style={{ padding: "34px 18px", display: "flex", flexDirection: "column", alignItems: "center", gap: 18 }}>

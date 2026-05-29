@@ -19,13 +19,12 @@ interface HeroDict {
   beta: string;
   flags: string;
   balance_label: string;
+  name_a: string;
+  name_b: string;
+  cat_meals: string;
+  cat_cleaning: string;
+  cat_kids: string;
 }
-
-const HERO_ROWS = [
-  { ...EH_CAT[0], a: 38, b: 62 },
-  { ...EH_CAT[1], a: 55, b: 45 },
-  { ...EH_CAT[2], a: 70, b: 30 },
-];
 
 const AVATAR_COLORS = ["#2D5F4E", "#D4785C", "#E8C4A0", "#7B6CB3", "#5E7B86"];
 
@@ -40,6 +39,12 @@ function fadeRiseProps(inView: boolean, delay: number) {
 export function Hero({ dict }: { dict: HeroDict }) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true });
+
+  const HERO_ROWS = [
+    { ...EH_CAT[0], name: dict.cat_meals,    a: 38, b: 62 },
+    { ...EH_CAT[1], name: dict.cat_cleaning, a: 55, b: 45 },
+    { ...EH_CAT[2], name: dict.cat_kids,     a: 70, b: 30 },
+  ];
 
   return (
     <section ref={ref} style={{ position: "relative", padding: "100px 80px 80px", maxWidth: 1440, margin: "0 auto" }}
@@ -103,14 +108,15 @@ export function Hero({ dict }: { dict: HeroDict }) {
             >
               {dict.cta_primary} <Ico name="arrow" size={18} stroke="currentColor" sw={2} />
             </a>
-            <button style={{
+            <a href="#comment" style={{
               padding: "18px 28px", borderRadius: 14,
               background: "transparent", color: "var(--eh-ink)",
               border: "1px solid var(--eh-line-strong)",
-              cursor: "pointer", fontWeight: 500, fontSize: 16,
+              fontWeight: 500, fontSize: 16,
+              textDecoration: "none", display: "inline-flex",
             }}>
               {dict.cta_secondary}
-            </button>
+            </a>
             <span style={{ fontFamily: "var(--font-dm-sans), system-ui, sans-serif", fontSize: 13, color: "var(--eh-ink-2)" }}>
               {dict.badge}
             </span>
@@ -166,7 +172,7 @@ export function Hero({ dict }: { dict: HeroDict }) {
             width: 460,
           }}>
             <div className="eh-eyebrow" style={{ color: "var(--eh-primary)" }}>{dict.balance_label}</div>
-            <BalanceScore scoreA={52} size={300} animate />
+            <BalanceScore scoreA={52} size={300} animate nameA={dict.name_a} nameB={dict.name_b} />
             <div style={{ marginTop: 32, alignSelf: "stretch" }}>
               <CategoryBars compact rows={HERO_ROWS} />
             </div>

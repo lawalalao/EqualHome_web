@@ -19,9 +19,14 @@
     "cta_primary": "Télécharger gratuitement",
     "cta_secondary": "Voir la démo",
     "badge": "iOS · Android · Gratuit pour commencer",
-    "beta": "+ 12 000 couples en bêta",
+    "beta": "Disponible sur iOS et Android",
     "flags": "France · UK · DE · NL · IT",
-    "balance_label": "VOTRE BALANCE · SEMAINE 21"
+    "balance_label": "VOTRE BALANCE · SEMAINE 21",
+    "name_a": "Camille",
+    "name_b": "Sacha",
+    "cat_meals": "Repas",
+    "cat_cleaning": "Ménage",
+    "cat_kids": "Enfants"
   },
   "proof": {
     "eyebrow": "LA DONNÉE EST CLAIRE",
@@ -120,7 +125,10 @@
     ],
     "step2_toggle": "+ Charge mentale",
     "step2_cta": "Enregistrer",
-    "step3_label": "BALANCE · SEMAINE 21"
+    "step3_label": "BALANCE · SEMAINE 21",
+    "cat_meals": "Repas",
+    "cat_cleaning": "Ménage",
+    "cat_kids": "Enfants"
   },
   "balance": {
     "eyebrow": "BALANCE SCORE",
@@ -222,7 +230,8 @@
         "q": "Disponible en quelles langues ?",
         "a": "Français et anglais au lancement. Allemand, espagnol, italien, néerlandais et portugais arrivent dans les 6 mois."
       }
-    ]
+    ],
+    "h2_1": "Vos"
   },
   "footer": {
     "cols": [
